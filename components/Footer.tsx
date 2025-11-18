@@ -56,7 +56,7 @@ export function Footer() {
           
           <nav aria-label="Social media links">
             <div className="flex gap-4">
-              <a href="#linkedin" className="text-gray-500 hover:text-[#00A5DF] transition-colors" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/109954300/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#00A5DF] transition-colors" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" aria-hidden="true" />
               </a>
               <a href="#twitter" className="text-gray-500 hover:text-[#00A5DF] transition-colors" aria-label="Twitter">
