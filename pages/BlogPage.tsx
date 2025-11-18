@@ -132,7 +132,7 @@ export function BlogPage() {
               {blogPosts.map((post) => (
                 <article key={post.id} className="group cursor-pointer">
                   {/* Image */}
-                  <a href={post.id === 1 ? "#blog-post-seo" : "#"}>
+                  <Link to={post.slug ? `/${post.slug}` : "#"}>
                     <div className="aspect-[16/10] overflow-hidden rounded-lg mb-6">
                       <img
                         src={post.image}
@@ -140,7 +140,7 @@ export function BlogPage() {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
-                  </a>
+                  </Link>
 
                   {/* Category Badge */}
                   <div className="mb-3">
@@ -150,11 +150,11 @@ export function BlogPage() {
                   </div>
 
                   {/* Title */}
-                  <a href={post.id === 1 ? "#blog-post-seo" : "#"}>
+                  <Link to={post.slug ? `/${post.slug}` : "#"}>
                     <h2 className="text-black mb-3 group-hover:text-[#00A5DF] transition-colors" style={{ fontSize: '24px', lineHeight: '1.3' }}>
                       {post.title}
                     </h2>
-                  </a>
+                  </Link>
 
                   {/* Excerpt */}
                   <p className="text-gray-600 mb-4" style={{ fontSize: '16px', lineHeight: '1.6' }}>
@@ -174,10 +174,10 @@ export function BlogPage() {
                   </div>
 
                   {/* Read More Link */}
-                  <a href={post.id === 1 ? "#blog-post-seo" : "#"} className="inline-flex items-center gap-2 text-[#00A5DF] hover:gap-3 transition-all" style={{ fontSize: '14px' }}>
+                  <Link to={post.slug ? `/${post.slug}` : "#"} className="inline-flex items-center gap-2 text-[#00A5DF] hover:gap-3 transition-all" style={{ fontSize: '14px' }}>
                     Read Article
                     <ArrowRight className="w-4 h-4" />
-                  </a>
+                  </Link>
                 </article>
               ))}
             </div>
