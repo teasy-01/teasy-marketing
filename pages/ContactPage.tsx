@@ -5,6 +5,7 @@ import { BreadcrumbSchema } from '../components/StructuredData';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { Mail, MapPin, Clock, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export function ContactPage() {
   const breadcrumbItems = [
@@ -31,23 +32,29 @@ export function ContactPage() {
     setErrorMessage('');
 
     try {
-      // Construct mailto link with form data
-      const subject = encodeURIComponent(`Contact Form Submission from ${formData.name}`);
-      const body = encodeURIComponent(`
-Name: ${formData.name}
-Email: ${formData.email}
-Company: ${formData.company || 'Not provided'}
-Phone: ${formData.phone || 'Not provided'}
-Service Interested In: ${formData.service}
+      // EmailJS configuration
+      // You'll need to set these up in EmailJS dashboard and add them as environment variables
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
 
-Message:
-${formData.message}
-      `);
+      // Initialize EmailJS with public key
+      emailjs.init(publicKey);
 
-      const mailtoLink = `mailto:team@teasymarketing.com?subject=${subject}&body=${body}`;
-      
-      // Open mailto link
-      window.location.href = mailtoLink;
+      // Prepare template parameters
+      const templateParams = {
+        to_email: 'team@teasymarketing.com',
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company || 'Not provided',
+        phone: formData.phone || 'Not provided',
+        service: formData.service,
+        message: formData.message,
+        subject: `Contact Form Submission from ${formData.name}`,
+      };
+
+      // Send email via EmailJS
+      await emailjs.send(serviceId, templateId, templateParams);
 
       setIsSubmitted(true);
       
@@ -64,8 +71,8 @@ ${formData.message}
         });
       }, 3000);
     } catch (error) {
-      console.error('Error opening email client:', error);
-      setErrorMessage('Failed to open email client. Please email us directly at team@teasymarketing.com');
+      console.error('Error sending email:', error);
+      setErrorMessage('Failed to send message. Please email us directly at team@teasymarketing.com');
     } finally {
       setIsSubmitting(false);
     }
