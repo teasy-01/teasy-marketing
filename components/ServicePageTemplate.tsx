@@ -126,7 +126,7 @@ export function ServicePageTemplate({
             <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-[#00A5DF] text-white rounded-full mb-4 sm:mb-6 text-sm sm:text-base">
               {subtitle}
             </div>
-            <h1 className="text-white mb-4 sm:mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            <h1 className="text-white mb-4 sm:mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-bold leading-tight">
               {title}
             </h1>
             <p className="text-gray-100 mb-6 sm:mb-8 md:mb-10 max-w-2xl text-base sm:text-lg leading-relaxed">

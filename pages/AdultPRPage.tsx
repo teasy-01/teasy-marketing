@@ -2,10 +2,8 @@ import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { ServicePageTemplate } from '../components/ServicePageTemplate';
 import { CTABanner } from '../components/CTABanner';
-import { TrustLogos } from '../components/TrustLogos';
 import { SEOHead } from '../components/SEOHead';
 import { ServiceSchema, BreadcrumbSchema } from '../components/StructuredData';
-import { Breadcrumbs } from '../components/Breadcrumbs';
 
 export function AdultPRPage() {
   const breadcrumbItems = [
@@ -25,8 +23,9 @@ export function AdultPRPage() {
       <ServiceSchema
         name="Adult PR & Reputation Management"
         description="Strategic adult PR, media relations, crisis management, and reputation monitoring for adult brands. Build credibility, secure media coverage, and protect your brand image in the adult industry."
+        url="https://teasymarketing.com/adult-pr"
       />
-      <BreadcrumbSchema items={breadcrumbItems} />
+      <BreadcrumbSchema items={breadcrumbItems.map(item => ({ name: item.label, url: `https://teasymarketing.com${item.href}` }))} />
       <Navigation />
       <main>
         <ServicePageTemplate
