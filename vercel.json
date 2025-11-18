@@ -36,6 +36,20 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.teasymarketing.com"
+        }
+      ],
+      "destination": "https://teasymarketing.com/:path*",
+      "permanent": true,
+      "statusCode": 301
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!assets/).*)",
