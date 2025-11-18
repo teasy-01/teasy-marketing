@@ -53,6 +53,10 @@
   "rewrites": [
     {
       "source": "/((?!assets/).*)",
+      "destination": "/$1/index.html"
+    },
+    {
+      "source": "/",
       "destination": "/index.html"
     }
   ]
