@@ -14,7 +14,7 @@ export function BlogPage() {
       category: "Introduction",
       date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
       readTime: "6 min read",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+      image: "/media/teasy-introduction.jpg",
       slug: "blog-post-teasy-agency"
     },
     {

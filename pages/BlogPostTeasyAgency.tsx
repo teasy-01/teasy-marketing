@@ -31,12 +31,12 @@ export function BlogPostTeasyAgency() {
         modifiedTime="2025-12-17T00:00:00Z"
         author="TEASY Team"
         keywords="teasy marketing, teasy agency, adult marketing agency, creator marketing"
-        ogImage="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80"
+        ogImage="https://teasymarketing.com/media/teasy-introduction.jpg"
       />
       <ArticleSchema
         headline="How Teasy Agency Became a Leader—And Why We Launched Teasy Marketing"
         description="Teasy started with a simple idea: empower creators with real support, real strategy, and real results. What began as a hands-on talent management team quickly grew into one of the most recognized names in the creator industry."
-        image="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80"
+        image="https://teasymarketing.com/media/teasy-introduction.jpg"
         datePublished="2025-12-17T00:00:00Z"
         dateModified="2025-12-17T00:00:00Z"
         author="TEASY Team"
@@ -89,7 +89,7 @@ export function BlogPostTeasyAgency() {
             {/* Featured Image */}
             <div className="aspect-[16/9] overflow-hidden rounded-lg">
               <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80"
+                src="/media/teasy-introduction.jpg"
                 alt="How Teasy Agency Became a Leader—And Why We Launched Teasy Marketing"
                 className="w-full h-full object-cover"
               />
