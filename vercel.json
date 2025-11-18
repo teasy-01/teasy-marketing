@@ -52,13 +52,11 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!assets/).*)",
-      "destination": "/$1/index.html"
-    },
-    {
-      "source": "/",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
 
