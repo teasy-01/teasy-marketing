@@ -3,20 +3,32 @@ import { Footer } from '../components/Footer';
 import { TrustLogos } from '../components/TrustLogos';
 import { CTABanner } from '../components/CTABanner';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function BlogPage() {
   const blogPosts = [
     {
       id: 1,
+      title: "How Teasy Agency Became a Leader—And Why We Launched Teasy Marketing",
+      excerpt: "Teasy started with a simple idea: empower creators with real support, real strategy, and real results. What began as a hands-on talent management team quickly grew into one of the most recognized names in the creator industry.",
+      category: "Introduction",
+      date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+      readTime: "6 min read",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+      slug: "blog-post-teasy-agency"
+    },
+    {
+      id: 2,
       title: "The Ultimate Guide to Adult SEO in 2025",
       excerpt: "Learn the latest strategies and best practices for optimizing adult websites to rank higher in search engines while navigating industry-specific challenges.",
       category: "SEO",
       date: "November 10, 2025",
       readTime: "8 min read",
-      image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80"
+      image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80",
+      slug: "blog-post-seo"
     },
     {
-      id: 2,
+      id: 3,
       title: "Building a Compliant Adult Social Media Strategy",
       excerpt: "Discover how to create engaging social media campaigns for adult brands while staying compliant with platform policies and community guidelines.",
       category: "Social Media",
@@ -25,7 +37,7 @@ export function BlogPage() {
       image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80"
     },
     {
-      id: 3,
+      id: 4,
       title: "Email Marketing Best Practices for Adult Businesses",
       excerpt: "Maximize your email marketing ROI with proven strategies tailored specifically for the adult industry, from list building to conversion optimization.",
       category: "Email Marketing",
@@ -34,7 +46,7 @@ export function BlogPage() {
       image: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?w=800&q=80"
     },
     {
-      id: 4,
+      id: 5,
       title: "How to Choose the Right Payment Processor for Adult Sites",
       excerpt: "Navigate the complex world of adult payment processing with our comprehensive guide to selecting reliable and compliant payment solutions.",
       category: "Business",
@@ -43,7 +55,7 @@ export function BlogPage() {
       image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80"
     },
     {
-      id: 5,
+      id: 6,
       title: "Content Marketing Strategies That Drive Adult Traffic",
       excerpt: "Create compelling content that attracts and retains your target audience while building authority in the competitive adult industry.",
       category: "Content Marketing",
@@ -52,7 +64,7 @@ export function BlogPage() {
       image: "/hero-image.jpg"
     },
     {
-      id: 6,
+      id: 7,
       title: "Reputation Management for Adult Brands",
       excerpt: "Protect and enhance your adult brand's reputation with effective PR strategies and proactive reputation management techniques.",
       category: "PR",
@@ -61,7 +73,7 @@ export function BlogPage() {
       image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80"
     },
     {
-      id: 7,
+      id: 8,
       title: "Mobile Optimization for Adult Entertainment Sites",
       excerpt: "Ensure your adult website delivers exceptional mobile experiences with our guide to responsive design and mobile-first optimization.",
       category: "Web Design",
@@ -70,7 +82,7 @@ export function BlogPage() {
       image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80"
     },
     {
-      id: 8,
+      id: 9,
       title: "Analytics & Tracking for Adult Websites",
       excerpt: "Master the art of tracking and analyzing your adult website's performance with privacy-compliant analytics solutions and key metrics.",
       category: "Analytics",
@@ -79,7 +91,7 @@ export function BlogPage() {
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
     },
     {
-      id: 9,
+      id: 10,
       title: "Building Trust in the Adult Industry",
       excerpt: "Establish credibility and trust with your audience through transparent communication, quality content, and ethical business practices.",
       category: "Business",
