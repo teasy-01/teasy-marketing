@@ -93,13 +93,6 @@ export function ContentShowcase() {
     );
   };
 
-  const visibleSlides = contentExamples.slice(currentIndex, currentIndex + slidesToShow);
-  
-  // If we don't have enough slides at the end, wrap around
-  if (visibleSlides.length < slidesToShow) {
-    visibleSlides.push(...contentExamples.slice(0, slidesToShow - visibleSlides.length));
-  }
-
   return (
     <section className="bg-black">
       <div className="max-w-7xl mx-auto px-6 py-24">
@@ -136,33 +129,38 @@ export function ContentShowcase() {
           <div className="overflow-hidden mx-12">
             <div 
               className="flex transition-transform duration-500 ease-in-out gap-6"
-              style={{ transform: `translateX(0)` }}
+              style={{ 
+                transform: `translateX(calc(-${currentIndex} * (100% + 24px) / ${slidesToShow}))`
+              }}
             >
-              {visibleSlides.map((example, index) => (
-                <div 
-                  key={`${example.id}-${index}`} 
-                  className="flex-shrink-0"
-                  style={{ width: `calc((100% - ${(slidesToShow - 1) * 24}px) / ${slidesToShow})` }}
-                >
-                  <div className="relative aspect-[9/16] bg-gray-900 rounded-lg overflow-hidden">
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      preload="none"
-                      className="w-full h-full object-cover"
-                      onLoadedData={(e) => {
-                        (e.target as HTMLVideoElement).play().catch(() => {
-                          // Ignore autoplay errors
-                        });
-                      }}
-                    >
-                      <source src={example.video} type="video/mp4" />
-                    </video>
+              {contentExamples.map((example) => {
+                const slideWidth = `calc((100% - ${(slidesToShow - 1) * 24}px) / ${slidesToShow})`;
+                return (
+                  <div 
+                    key={example.id} 
+                    className="flex-shrink-0"
+                    style={{ width: slideWidth }}
+                  >
+                    <div className="relative aspect-[9/16] bg-gray-900 rounded-lg overflow-hidden">
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="none"
+                        className="w-full h-full object-cover"
+                        onLoadedData={(e) => {
+                          (e.target as HTMLVideoElement).play().catch(() => {
+                            // Ignore autoplay errors
+                          });
+                        }}
+                      >
+                        <source src={example.video} type="video/mp4" />
+                      </video>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
