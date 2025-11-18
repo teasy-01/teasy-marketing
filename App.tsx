@@ -28,7 +28,6 @@ const AdultPRPage = lazy(() => import('./pages/AdultPRPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const BlogPage = lazy(() => import('./pages/BlogPage'));
-const BlogPostSEO = lazy(() => import('./pages/BlogPostSEO'));
 const BlogPostTeasyAgency = lazy(() => import('./pages/BlogPostTeasyAgency'));
 const CaseStudy1 = lazy(() => import('./pages/CaseStudy1'));
 const CaseStudy2 = lazy(() => import('./pages/CaseStudy2'));
@@ -142,7 +141,6 @@ export default function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog-post-seo" element={<BlogPostSEO />} />
           <Route path="/blog-post-teasy-agency" element={<BlogPostTeasyAgency />} />
           <Route path="/case-study-1" element={<CaseStudy1 />} />
           <Route path="/case-study-2" element={<CaseStudy2 />} />
