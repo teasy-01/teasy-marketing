@@ -9,7 +9,7 @@ export function CaseStudy2() {
     { name: 'Online Creator Revenue Growth Story', url: 'https://teasymarketing.com/case-study-creator-growth' }
   ];
 
-  const caseStudy2Image = '/media/online-creator.jpg';
+  const caseStudy2Image = 'https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=1200&h=600&fit=crop';
 
   const data = {
     industry: "Online Creator",

@@ -7,7 +7,11 @@ The contact form uses Web3Forms to send emails automatically. Setup takes less t
 1. Go to [https://web3forms.com](https://web3forms.com)
 2. Enter your email: `team@teasymarketing.com`
 3. Click "Get Your Access Key"
-4. **Copy the access key** (it will look like: `a1b2c3d4-e5f6-7890-abcd-ef1234567890`)
+4. **Check your email** - Web3Forms will send a verification email
+5. **Click the verification link** in the email to activate your access key
+6. **Copy the access key** (it will look like: `a1b2c3d4-e5f6-7890-abcd-ef1234567890`)
+
+**Important:** You must verify your email address before the access key will work!
 
 ## Step 2: Add to Vercel Environment Variables
 
@@ -47,7 +51,15 @@ Your contact form will now automatically send emails to `team@teasymarketing.com
 
 ## Troubleshooting
 
-- **Not receiving emails**: Check spam folder, verify access key is correct
-- **Form shows error**: Make sure you added the environment variable and redeployed
+- **Not receiving emails**: 
+  - Check spam/junk folder first
+  - Verify you clicked the email verification link when you created the access key
+  - Check browser console (F12) for error messages
+  - Verify the access key is correct
+- **Form shows error**: 
+  - Make sure you added the environment variable and redeployed
+  - Check browser console (F12) for detailed error messages
+  - Verify the access key is active (check Web3Forms dashboard)
 - **Rate limiting**: Free tier has 250 submissions/month limit
+- **Email not verified**: You must verify your email address at web3forms.com before the access key works
 

@@ -48,15 +48,29 @@ export function ContactPage() {
       formDataToSend.append('phone', formData.phone || 'Not provided');
       formDataToSend.append('service', formData.service);
       formDataToSend.append('message', formData.message);
+
+      // Web3Forms will send to the email associated with the access key
+      // But we can also specify 'to' if needed
       formDataToSend.append('to', 'team@teasymarketing.com');
       formDataToSend.append('from_name', 'TEASY Marketing Contact Form');
 
+      console.log('Sending form data to Web3Forms...', {
+        accessKey: accessKey.substring(0, 10) + '...',
+        to: 'team@teasymarketing.com',
+        from: formData.email
+      });
+
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+        },
         body: formDataToSend
       });
 
       const result = await response.json();
+      
+      console.log('Web3Forms response:', result);
 
       if (result.success) {
         setIsSubmitted(true);
@@ -74,7 +88,7 @@ export function ContactPage() {
           });
         }, 3000);
       } else {
-        throw new Error(result.message || 'Failed to send message');
+        throw new Error(result.message || `Failed to send: ${JSON.stringify(result)}`);
       }
     } catch (error: any) {
       console.error('Error sending email:', error);
@@ -82,8 +96,10 @@ export function ContactPage() {
       // Provide helpful error messages
       if (error.message && error.message.includes('not configured')) {
         setErrorMessage('Form service is not configured yet. Please contact us directly at team@teasymarketing.com. Setup instructions: See WEB3FORMS_SETUP.md');
+      } else if (error.message) {
+        setErrorMessage(`Failed to send: ${error.message}. Please check the browser console for details or email us directly at team@teasymarketing.com`);
       } else {
-        setErrorMessage(`Failed to send message. Please email us directly at team@teasymarketing.com`);
+        setErrorMessage(`Failed to send message. Please check the browser console (F12) for details or email us directly at team@teasymarketing.com`);
       }
     } finally {
       setIsSubmitting(false);
