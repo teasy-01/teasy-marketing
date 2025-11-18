@@ -86,7 +86,7 @@ export function ServicePageTemplate({
   return (
     <div className="min-h-screen">
       {/* Hero Section - Full-width with background image or video */}
-      <section className="bg-white relative min-h-[105vh] sm:min-h-0">
+      <section className="bg-white relative">
         {heroImage && (
           <>
             {heroImage.endsWith('.mp4') ? (
@@ -120,7 +120,7 @@ export function ServicePageTemplate({
           </>
         )}
         
-        <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 py-16 md:py-32 relative z-10">
           {breadcrumbItems && <Breadcrumbs items={breadcrumbItems} />}
           <div className="max-w-4xl">
             <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-[#00A5DF] text-white rounded-full mb-4 sm:mb-6 text-sm sm:text-base">
