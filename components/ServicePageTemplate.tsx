@@ -86,7 +86,7 @@ export function ServicePageTemplate({
   return (
     <div className="min-h-screen">
       {/* Hero Section - Full-width with background image or video */}
-      <section className="bg-white relative">
+      <section className="bg-white relative min-h-[105vh] sm:min-h-0">
         {heroImage && (
           <>
             {heroImage.endsWith('.mp4') ? (
