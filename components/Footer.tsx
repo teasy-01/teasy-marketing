@@ -1,4 +1,4 @@
-import { Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export function Footer() {
@@ -58,15 +58,6 @@ export function Footer() {
             <div className="flex gap-4">
               <a href="https://www.linkedin.com/company/109954300/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#00A5DF] transition-colors" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" aria-hidden="true" />
-              </a>
-              <a href="#twitter" className="text-gray-500 hover:text-[#00A5DF] transition-colors" aria-label="Twitter">
-                <Twitter className="w-5 h-5" aria-hidden="true" />
-              </a>
-              <a href="#facebook" className="text-gray-500 hover:text-[#00A5DF] transition-colors" aria-label="Facebook">
-                <Facebook className="w-5 h-5" aria-hidden="true" />
-              </a>
-              <a href="#instagram" className="text-gray-500 hover:text-[#00A5DF] transition-colors" aria-label="Instagram">
-                <Instagram className="w-5 h-5" aria-hidden="true" />
               </a>
             </div>
           </nav>
