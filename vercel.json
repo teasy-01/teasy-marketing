@@ -52,11 +52,14 @@
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!assets|media|favicon|robots|sitemap).*)",
       "destination": "/index.html"
     }
   ],
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "errorPages": {
+    "404": "/index.html"
+  }
 }
 
