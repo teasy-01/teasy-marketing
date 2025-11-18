@@ -9,9 +9,9 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 
 export function AdultContentMarketingPage() {
   const breadcrumbItems = [
-    { label: 'Home', href: '#' },
-    { label: 'Services', href: '#services' },
-    { label: 'Adult Content Marketing', href: '#adult-content-marketing' }
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/#services' },
+    { label: 'Adult Content Marketing', href: '/adult-content-marketing' }
   ];
 
   return (
@@ -35,7 +35,7 @@ export function AdultContentMarketingPage() {
           title="Adult Content Marketing"
           subtitle="Adult Content Creation and Marketing"
           heroDescription="We craft performance-driven adult content and marketing strategies that elevate your brand’s voice, boost visibility, and convert viewers into loyal customers."
-          heroImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb250ZW50JTIwbWFya2V0aW5nfGVufDF8fHx8MTc2Mjk5Njk3N3ww&ixlib=rb-4.1.0&q=80&w=1080"
+          heroImage="/media/adult-content-marketing.mp4"
 
           // Benefits Section
           benefitsTitle="Why Choose Our Adult Content Marketing Services"

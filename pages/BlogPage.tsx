@@ -49,7 +49,7 @@ export function BlogPage() {
       category: "Content Marketing",
       date: "October 15, 2025",
       readTime: "9 min read",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
+      image: "/hero-image.jpg"
     },
     {
       id: 6,

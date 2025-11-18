@@ -9,9 +9,9 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 
 export function AdultEmailMarketingPage() {
   const breadcrumbItems = [
-    { label: 'Home', href: '#' },
-    { label: 'Services', href: '#services' },
-    { label: 'Adult Email Marketing', href: '#adult-email-marketing' }
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/#services' },
+    { label: 'Adult Email Marketing', href: '/adult-email-marketing' }
   ];
 
   return (
@@ -38,7 +38,7 @@ export function AdultEmailMarketingPage() {
           title="Adult Email Marketing"
           subtitle="Adult Email Campaigns & Automation"
           heroDescription="Compliant adult email campaigns and automation that nurture subscribers, increase retention, and maximize lifetime customer value. Turn your email list into your most profitable marketing channel."
-          heroImage="https://images.unsplash.com/photo-1563986768609-322da13575f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbWFpbCUyMG1hcmtldGluZ3xlbnwxfHx8fDE3NjI5OTY5Nzd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+          heroImage="/media/adult-email-marketing.mp4"
 
           // Benefits Section
           benefitsTitle="Why Choose Our Adult Email Marketing Services"

@@ -1,12 +1,25 @@
-const heroImage = 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=900&fit=crop';
+import { Link } from 'react-router-dom';
 
 export function Hero() {
   return (
     <section className="bg-white relative">
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
+      <div className="absolute inset-0 overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="none"
+          className="absolute inset-0 w-full h-full object-cover"
+          onLoadedData={(e) => {
+            // Start playing only after data is loaded
+            (e.target as HTMLVideoElement).play().catch(() => {
+              // Ignore autoplay errors
+            });
+          }}
+        >
+          <source src="/media/teasy-adult-marketing.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
       
@@ -19,14 +32,14 @@ export function Hero() {
             Where elite adult brands partner with seasoned marketers who understand the adult industry from the inside out.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a 
-              href="#contact" 
+            <Link 
+              to="/contact" 
               className="bg-[#00A5DF] text-white px-8 py-4 rounded-md hover:bg-[#0094c9] transition-colors inline-block"
             >
               Work With Us
-            </a>
+            </Link>
             <a 
-              href="#services" 
+              href="/#services" 
               className="bg-white text-black border-2 border-white px-8 py-4 rounded-md hover:bg-gray-100 transition-colors inline-block"
             >
               View Our Services

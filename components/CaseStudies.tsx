@@ -1,9 +1,10 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const caseStudy1Image = 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop';
-const caseStudy2Image = 'https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=1200&h=600&fit=crop';
-const caseStudy3Image = 'https://images.unsplash.com/photo-1611262588024-d12430b98920?w=1200&h=600&fit=crop';
+const caseStudy1Image = '/media/adult-talent-agency.jpg';
+const caseStudy2Image = '/media/online-creator.jpg';
+const caseStudy3Image = '/media/snapchat-marketing.jpg';
 
 interface CaseStudy {
   image: string;
@@ -24,7 +25,7 @@ export function CaseStudies() {
       result1: "Top 3 rankings for major keywords",
       result2: "500+ qualified creator applicants",
       result3: "285% increase in brand mentions",
-      link: "#case-study-1"
+      link: "/case-study-1"
     },
     {
       image: caseStudy2Image,
@@ -33,7 +34,7 @@ export function CaseStudies() {
       result1: "425% increase in social media followers",
       result2: "680% more traffic to subscription platform",
       result3: "3.2x revenue growth",
-      link: "#case-study-2"
+      link: "/case-study-2"
     },
     {
       image: caseStudy3Image,
@@ -42,7 +43,7 @@ export function CaseStudies() {
       result1: "540% increase in Snapchat followers",
       result2: "890% growth in organic traffic",
       result3: "12x more qualified client inquiries",
-      link: "#case-study-3"
+      link: "/case-study-3"
     }
   ];
 
@@ -58,7 +59,7 @@ export function CaseStudies() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {caseStudies.map((study, index) => (
-            <div 
+            <article 
               key={index}
               className="group border border-gray-800 rounded-lg overflow-hidden hover:border-[#00A5DF] transition-colors bg-black"
             >
@@ -88,15 +89,15 @@ export function CaseStudies() {
                     {study.result3}
                   </li>
                 </ul>
-                <a 
-                  href={study.link} 
+                <Link 
+                  to={study.link} 
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#00A5DF] text-white rounded-lg hover:bg-[#0094c9] transition-colors"
                 >
                   Read Full Case Study
                   <ArrowUpRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

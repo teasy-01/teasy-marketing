@@ -1,16 +1,14 @@
-const logoText = 'TEASY';
-
 export function Logo({ variant = 'light', className = '' }: { variant?: 'light' | 'dark'; className?: string }) {
   return (
-    <div className={className || "h-8 flex items-center font-bold text-lg"}>
-      <span style={{ 
-        color: variant === 'dark' ? '#000' : '#fff',
-        fontSize: '18px',
-        fontWeight: 'bold',
-        letterSpacing: '2px'
-      }}>
-        {logoText}
-      </span>
+    <div className={className || "h-4 flex items-center"}>
+      <img 
+        src="/media/teasy-marketing-logo.png" 
+        alt="TEASY Marketing" 
+        className="h-full w-auto object-contain"
+        loading="eager"
+        width="120"
+        height="32"
+      />
     </div>
   );
 }

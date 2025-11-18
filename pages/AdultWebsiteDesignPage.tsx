@@ -9,9 +9,9 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 
 export function AdultWebsiteDesignPage() {
   const breadcrumbItems = [
-    { label: 'Home', href: '#' },
-    { label: 'Services', href: '#services' },
-    { label: 'Adult Website Design', href: '#adult-website-design' }
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/#services' },
+    { label: 'Adult Website Design', href: '/adult-website-design' }
   ];
 
   return (
@@ -38,7 +38,7 @@ export function AdultWebsiteDesignPage() {
           title="Adult Website Design & Development"
           subtitle="Custom Adult Web Design & Development"
           heroDescription="High-converting, mobile-responsive websites built specifically for adult brands. From subscription platforms to e-commerce stores, we create seamless user experiences with secure payment integration and compliance built-in."
-          heroImage="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXNpZ24lMjB3b3Jrc3BhY2V8ZW58MXx8fHwxNzYyOTk2OTc3fDA&ixlib=rb-4.1.0&q=80&w=1080"
+          heroImage="/media/adult-web-design.mp4"
 
           // Benefits Section
           benefitsTitle="Why Choose Our Adult Web Design Services"

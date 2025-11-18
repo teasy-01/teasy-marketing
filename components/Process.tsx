@@ -43,9 +43,9 @@ export function Process() {
           </p>
         </div>
 
-        <div className="space-y-8">
+        <ol className="space-y-8" aria-label="Marketing process steps">
           {steps.map((step, index) => (
-            <div 
+            <li 
               key={index}
               className="flex flex-col md:flex-row gap-6 md:gap-8 items-start p-8 bg-black border border-gray-800 rounded-lg hover:border-[#00A5DF] transition-colors"
             >
@@ -60,9 +60,9 @@ export function Process() {
                   {step.description}
                 </p>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

@@ -9,7 +9,7 @@ export function CaseStudy1() {
     { name: 'Adult Talent Agency Success Story', url: 'https://teasymarketing.com/case-study-onlyfans-agency' }
   ];
 
-  const caseStudy1Image = 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop';
+  const caseStudy1Image = '/media/adult-talent-agency.jpg';
 
   const data = {
     industry: "Adult Talent Agency",

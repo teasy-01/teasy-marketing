@@ -1,168 +1,52 @@
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect, lazy, Suspense } from 'react';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { TrustLogos } from './components/TrustLogos';
-import { ServicesGrid } from './components/ServicesGrid';
-import { WhyChooseUs } from './components/WhyChooseUs';
-import { ContentShowcase } from './components/ContentShowcase';
-import { CaseStudies } from './components/CaseStudies';
-import { Process } from './components/Process';
-import { Testimonials } from './components/Testimonials';
-import { FAQ } from './components/FAQ';
-import { CTABanner } from './components/CTABanner';
 import { Footer } from './components/Footer';
 import { SEOHead } from './components/SEOHead';
 import { OrganizationSchema, WebsiteSchema } from './components/StructuredData';
-import AdultSEOPage from './pages/AdultSEOPage';
-import AdultSocialMediaPage from './pages/AdultSocialMediaPage';
-import AdultWebsiteDesignPage from './pages/AdultWebsiteDesignPage';
-import AdultEmailMarketingPage from './pages/AdultEmailMarketingPage';
-import AdultContentMarketingPage from './pages/AdultContentMarketingPage';
-import AdultPRPage from './pages/AdultPRPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import BlogPage from './pages/BlogPage';
-import BlogPostSEO from './pages/BlogPostSEO';
-import CaseStudy1 from './pages/CaseStudy1';
-import CaseStudy2 from './pages/CaseStudy2';
-import CaseStudy3 from './pages/CaseStudy3';
-import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
-import TermsOfServicePage from './pages/TermsOfServicePage';
-import NotFoundPage from './pages/NotFoundPage';
 import { CookieConsent } from './components/CookieConsent';
-import { useState, useEffect } from 'react';
 
-export default function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+// Lazy load below-the-fold components
+const ServicesGrid = lazy(() => import('./components/ServicesGrid').then(m => ({ default: m.ServicesGrid })));
+const WhyChooseUs = lazy(() => import('./components/WhyChooseUs').then(m => ({ default: m.WhyChooseUs })));
+const ContentShowcase = lazy(() => import('./components/ContentShowcase').then(m => ({ default: m.ContentShowcase })));
+const CaseStudies = lazy(() => import('./components/CaseStudies').then(m => ({ default: m.CaseStudies })));
+const Process = lazy(() => import('./components/Process').then(m => ({ default: m.Process })));
+const Testimonials = lazy(() => import('./components/Testimonials').then(m => ({ default: m.Testimonials })));
+const FAQ = lazy(() => import('./components/FAQ').then(m => ({ default: m.FAQ })));
+const CTABanner = lazy(() => import('./components/CTABanner').then(m => ({ default: m.CTABanner })));
 
-  // Define section IDs that exist on the home page
-  const homeSections = ['services', 'case-studies', 'testimonials', 'faq', 'process', 'why-choose-us'];
+// Lazy load all pages for code splitting
+const AdultSEOPage = lazy(() => import('./pages/AdultSEOPage'));
+const AdultSocialMediaPage = lazy(() => import('./pages/AdultSocialMediaPage'));
+const AdultWebsiteDesignPage = lazy(() => import('./pages/AdultWebsiteDesignPage'));
+const AdultEmailMarketingPage = lazy(() => import('./pages/AdultEmailMarketingPage'));
+const AdultContentMarketingPage = lazy(() => import('./pages/AdultContentMarketingPage'));
+const AdultPRPage = lazy(() => import('./pages/AdultPRPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const BlogPage = lazy(() => import('./pages/BlogPage'));
+const BlogPostSEO = lazy(() => import('./pages/BlogPostSEO'));
+const CaseStudy1 = lazy(() => import('./pages/CaseStudy1'));
+const CaseStudy2 = lazy(() => import('./pages/CaseStudy2'));
+const CaseStudy3 = lazy(() => import('./pages/CaseStudy3'));
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
+const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
-  // Listen for hash changes
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.slice(1); // Remove the # symbol
-      
-      if (!hash) {
-        setCurrentPage('home');
-        window.scrollTo(0, 0);
-        return;
-      }
+// Loading fallback component
+const PageLoader = () => (
+  <div className="min-h-screen flex items-center justify-center bg-white">
+    <div className="text-center">
+      <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#00A5DF]"></div>
+      <p className="mt-4 text-gray-600">Loading...</p>
+    </div>
+  </div>
+);
 
-      // Check if it's a home page section
-      if (homeSections.includes(hash)) {
-        // Navigate to home if not already there
-        if (currentPage !== 'home') {
-          setCurrentPage('home');
-          // Wait for home page to render, then scroll to section
-          setTimeout(() => {
-            const element = document.getElementById(hash);
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth' });
-            }
-          }, 100);
-        } else {
-          // Already on home, just scroll to section
-          const element = document.getElementById(hash);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
-      } else {
-        // It's a page route, change page and scroll to top
-        setCurrentPage(hash);
-        window.scrollTo(0, 0);
-      }
-    };
-
-    // Check initial hash
-    handleHashChange();
-
-    // Listen for hash changes
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, [currentPage]);
-
-  // Route to Adult SEO page
-  if (currentPage === 'adult-seo') {
-    return <AdultSEOPage />;
-  }
-
-  // Route to Adult Social Media page
-  if (currentPage === 'adult-social-media') {
-    return <AdultSocialMediaPage />;
-  }
-
-  // Route to Adult Website Design page
-  if (currentPage === 'adult-website-design') {
-    return <AdultWebsiteDesignPage />;
-  }
-
-  // Route to Adult Email Marketing page
-  if (currentPage === 'adult-email-marketing') {
-    return <AdultEmailMarketingPage />;
-  }
-
-  // Route to Adult Content Marketing page
-  if (currentPage === 'adult-content-marketing') {
-    return <AdultContentMarketingPage />;
-  }
-
-  // Route to Adult PR page
-  if (currentPage === 'adult-pr') {
-    return <AdultPRPage />;
-  }
-
-  // Route to About page
-  if (currentPage === 'about') {
-    return <AboutPage />;
-  }
-
-  // Route to Contact page
-  if (currentPage === 'contact') {
-    return <ContactPage />;
-  }
-
-  // Route to Blog page
-  if (currentPage === 'blog') {
-    return <BlogPage />;
-  }
-
-  // Route to Blog Post SEO page
-  if (currentPage === 'blog-post-seo') {
-    return <BlogPostSEO />;
-  }
-
-  // Route to Case Study 1 page
-  if (currentPage === 'case-study-1') {
-    return <CaseStudy1 />;
-  }
-
-  // Route to Case Study 2 page
-  if (currentPage === 'case-study-2') {
-    return <CaseStudy2 />;
-  }
-
-  // Route to Case Study 3 page
-  if (currentPage === 'case-study-3') {
-    return <CaseStudy3 />;
-  }
-
-  // Route to Privacy Policy page
-  if (currentPage === 'privacy-policy') {
-    return <PrivacyPolicyPage />;
-  }
-
-  // Route to Terms of Service page
-  if (currentPage === 'terms-of-service') {
-    return <TermsOfServicePage />;
-  }
-
-  // Route to Not Found page
-  if (currentPage === 'not-found') {
-    return <NotFoundPage />;
-  }
-
-  // Default home page
+function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       <SEOHead
@@ -177,17 +61,85 @@ export default function App() {
       <main>
         <Hero />
         <TrustLogos />
-        <ServicesGrid />
-        <WhyChooseUs />
-        <ContentShowcase />
-        <CaseStudies />
-        <Process />
-        <Testimonials />
-        <FAQ />
-        <CTABanner />
+        <Suspense fallback={<div className="h-96 bg-white" />}>
+          <ServicesGrid />
+        </Suspense>
+        <Suspense fallback={<div className="h-96 bg-black" />}>
+          <WhyChooseUs />
+        </Suspense>
+        <Suspense fallback={<div className="h-96 bg-white" />}>
+          <ContentShowcase />
+        </Suspense>
+        <Suspense fallback={<div className="h-96 bg-white" />}>
+          <CaseStudies />
+        </Suspense>
+        <Suspense fallback={<div className="h-96 bg-white" />}>
+          <Process />
+        </Suspense>
+        <Suspense fallback={<div className="h-96 bg-black" />}>
+          <Testimonials />
+        </Suspense>
+        <Suspense fallback={<div className="h-96 bg-white" />}>
+          <FAQ />
+        </Suspense>
+        <Suspense fallback={<div className="h-96 bg-black" />}>
+          <CTABanner />
+        </Suspense>
       </main>
       <Footer />
       <CookieConsent />
     </div>
+  );
+}
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  const homeSections = ['services', 'case-studies-section', 'testimonials-section', 'faq-section', 'process', 'why-choose-us'];
+
+  useEffect(() => {
+    // Handle hash navigation for home page sections
+    const hash = window.location.hash.slice(1);
+    if (pathname === '/' && hash && homeSections.includes(hash)) {
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // Scroll to top for page changes
+      window.scrollTo(0, 0);
+    }
+  }, [pathname]);
+
+  return null;
+}
+
+export default function App() {
+  return (
+    <>
+      <ScrollToTop />
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/adult-seo" element={<AdultSEOPage />} />
+          <Route path="/adult-social-media" element={<AdultSocialMediaPage />} />
+          <Route path="/adult-website-design" element={<AdultWebsiteDesignPage />} />
+          <Route path="/adult-email-marketing" element={<AdultEmailMarketingPage />} />
+          <Route path="/adult-content-marketing" element={<AdultContentMarketingPage />} />
+          <Route path="/adult-pr" element={<AdultPRPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog-post-seo" element={<BlogPostSEO />} />
+          <Route path="/case-study-1" element={<CaseStudy1 />} />
+          <Route path="/case-study-2" element={<CaseStudy2 />} />
+          <Route path="/case-study-3" element={<CaseStudy3 />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
+    </>
   );
 }

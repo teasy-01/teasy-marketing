@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "npm run build:ssg",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "vite",
@@ -38,7 +38,11 @@
   ],
   "rewrites": [
     {
-      "source": "/:path*",
+      "source": "/((?!assets/).*)",
+      "destination": "/$1/index.html"
+    },
+    {
+      "source": "/",
       "destination": "/index.html"
     }
   ]

@@ -9,9 +9,9 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 
 export function AdultPRPage() {
   const breadcrumbItems = [
-    { label: 'Home', href: '#' },
-    { label: 'Services', href: '#services' },
-    { label: 'Adult PR & Reputation Management', href: '#adult-pr' }
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/#services' },
+    { label: 'Adult PR & Reputation Management', href: '/adult-pr' }
   ];
 
   return (
@@ -35,7 +35,7 @@ export function AdultPRPage() {
           title="Adult PR & Reputation Management"
           subtitle="Adult Public Relations & Brand Strategy"
           heroDescription="Strengthen your brand’s credibility with strategic PR, media outreach, and reputation management built specifically for adult businesses navigating high-visibility challenges, competitive markets, and sensitive public perception."
-          heroImage="https://images.unsplash.com/photo-1557804506-669a67965ba0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwdWJsaWMlMjByZWxhdGlvbnN8ZW58MXx8fHwxNzYyOTk2OTc3fDA&ixlib=rb-4.1.0&q=80&w=1080"
+          heroImage="/media/adult-pr.mp4"
 
           // Benefits Section
           benefitsTitle="Why Choose Our Adult PR Services"

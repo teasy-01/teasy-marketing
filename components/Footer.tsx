@@ -1,5 +1,5 @@
 import { Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
-import { Logo } from './Logo';
+import { Link } from 'react-router-dom';
 
 export function Footer() {
   return (
@@ -9,7 +9,14 @@ export function Footer() {
           {/* Column 1: Logo and Company Description */}
           <div>
             <div className="mb-6">
-              <Logo variant="dark" className="w-full max-w-[240px]" />
+              <img 
+                src="/media/teasy-marketing-box-logo.png" 
+                alt="TEASY Marketing" 
+                className="w-full max-w-[240px] h-auto"
+                loading="lazy"
+                width="240"
+                height="60"
+              />
             </div>
             <p className="text-gray-600" style={{ fontSize: '16px', lineHeight: '1.7' }}>
               Teasy Marketing is the leading adult industry marketing agency, combining a decade of insider experience, data-driven strategy, and full-stack digital solutions to help studios and brands grow, scale, and dominate online.
@@ -17,50 +24,52 @@ export function Footer() {
           </div>
           
           {/* Column 2: Services */}
-          <div>
+          <nav aria-label="Footer services navigation">
             <h4 className="text-black mb-4">Services</h4>
             <ul className="space-y-2">
-              <li><a href="#adult-seo" className="text-gray-600 hover:text-[#00A5DF]">Adult SEO</a></li>
-              <li><a href="#adult-social-media" className="text-gray-600 hover:text-[#00A5DF]">Adult Social Media</a></li>
-              <li><a href="#adult-website-design" className="text-gray-600 hover:text-[#00A5DF]">Adult Website Design</a></li>
-              <li><a href="#adult-email-marketing" className="text-gray-600 hover:text-[#00A5DF]">Adult Email Marketing</a></li>
-              <li><a href="#adult-content-marketing" className="text-gray-600 hover:text-[#00A5DF]">Adult Content Marketing</a></li>
-              <li><a href="#adult-pr" className="text-gray-600 hover:text-[#00A5DF]">Adult PR</a></li>
+              <li><Link to="/adult-seo" className="text-gray-600 hover:text-[#00A5DF]">Adult SEO</Link></li>
+              <li><Link to="/adult-social-media" className="text-gray-600 hover:text-[#00A5DF]">Adult Social Media</Link></li>
+              <li><Link to="/adult-website-design" className="text-gray-600 hover:text-[#00A5DF]">Adult Website Design</Link></li>
+              <li><Link to="/adult-email-marketing" className="text-gray-600 hover:text-[#00A5DF]">Adult Email Marketing</Link></li>
+              <li><Link to="/adult-content-marketing" className="text-gray-600 hover:text-[#00A5DF]">Adult Content Marketing</Link></li>
+              <li><Link to="/adult-pr" className="text-gray-600 hover:text-[#00A5DF]">Adult PR</Link></li>
             </ul>
-          </div>
+          </nav>
           
           {/* Column 3: Company */}
-          <div>
+          <nav aria-label="Footer company navigation">
             <h4 className="text-black mb-4">Company</h4>
             <ul className="space-y-2">
-              <li><a href="#about" className="text-gray-600 hover:text-[#00A5DF]">About Us</a></li>
-              <li><a href="#blog" className="text-gray-600 hover:text-[#00A5DF]">Blog</a></li>
-              <li><a href="#contact" className="text-gray-600 hover:text-[#00A5DF]">Contact</a></li>
-              <li><a href="#terms-of-service" className="text-gray-600 hover:text-[#00A5DF]">Terms of Service</a></li>
-              <li><a href="#privacy-policy" className="text-gray-600 hover:text-[#00A5DF]">Privacy Policy</a></li>
+              <li><Link to="/about" className="text-gray-600 hover:text-[#00A5DF]">About Us</Link></li>
+              <li><Link to="/blog" className="text-gray-600 hover:text-[#00A5DF]">Blog</Link></li>
+              <li><Link to="/contact" className="text-gray-600 hover:text-[#00A5DF]">Contact</Link></li>
+              <li><Link to="/terms-of-service" className="text-gray-600 hover:text-[#00A5DF]">Terms of Service</Link></li>
+              <li><Link to="/privacy-policy" className="text-gray-600 hover:text-[#00A5DF]">Privacy Policy</Link></li>
             </ul>
-          </div>
+          </nav>
         </div>
 
         <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500" style={{ fontSize: '14px' }}>
-            © 2025 TEASY. All rights reserved.
+            © 2026 TEASY. All rights reserved.
           </p>
           
-          <div className="flex gap-4">
-            <a href="#linkedin" className="text-gray-500 hover:text-[#00A5DF] transition-colors">
-              <Linkedin className="w-5 h-5" />
-            </a>
-            <a href="#twitter" className="text-gray-500 hover:text-[#00A5DF] transition-colors">
-              <Twitter className="w-5 h-5" />
-            </a>
-            <a href="#facebook" className="text-gray-500 hover:text-[#00A5DF] transition-colors">
-              <Facebook className="w-5 h-5" />
-            </a>
-            <a href="#instagram" className="text-gray-500 hover:text-[#00A5DF] transition-colors">
-              <Instagram className="w-5 h-5" />
-            </a>
-          </div>
+          <nav aria-label="Social media links">
+            <div className="flex gap-4">
+              <a href="#linkedin" className="text-gray-500 hover:text-[#00A5DF] transition-colors" aria-label="LinkedIn">
+                <Linkedin className="w-5 h-5" aria-hidden="true" />
+              </a>
+              <a href="#twitter" className="text-gray-500 hover:text-[#00A5DF] transition-colors" aria-label="Twitter">
+                <Twitter className="w-5 h-5" aria-hidden="true" />
+              </a>
+              <a href="#facebook" className="text-gray-500 hover:text-[#00A5DF] transition-colors" aria-label="Facebook">
+                <Facebook className="w-5 h-5" aria-hidden="true" />
+              </a>
+              <a href="#instagram" className="text-gray-500 hover:text-[#00A5DF] transition-colors" aria-label="Instagram">
+                <Instagram className="w-5 h-5" aria-hidden="true" />
+              </a>
+            </div>
+          </nav>
         </div>
       </div>
     </footer>

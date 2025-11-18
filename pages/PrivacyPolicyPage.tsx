@@ -6,8 +6,8 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 
 export function PrivacyPolicyPage() {
   const breadcrumbItems = [
-    { label: 'Home', href: '#' },
-    { label: 'Privacy Policy', href: '#privacy' }
+    { label: 'Home', href: '/' },
+    { label: 'Privacy Policy', href: '/privacy-policy' }
   ];
 
   return (

@@ -36,11 +36,7 @@ export function CaseStudyTemplate({ data }: CaseStudyTemplateProps) {
         <section className="bg-black">
           <div className="max-w-7xl mx-auto px-6 py-12 md:py-24">
             <a 
-              href="#" 
-              onClick={(e) => {
-                e.preventDefault();
-                window.location.hash = '';
-              }}
+              href="/" 
               className="inline-flex items-center gap-2 text-gray-300 hover:text-white mb-8 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />

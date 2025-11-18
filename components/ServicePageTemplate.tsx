@@ -85,41 +85,63 @@ export function ServicePageTemplate({
 }: ServicePageProps) {
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Full-width with background image */}
+      {/* Hero Section - Full-width with background image or video */}
       <section className="bg-white relative">
         {heroImage && (
           <>
-            <div 
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${heroImage})` }}
-            >
-              <div className="absolute inset-0 bg-black/50"></div>
-            </div>
+            {heroImage.endsWith('.mp4') ? (
+              <div className="absolute inset-0 overflow-hidden">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="none"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onLoadedData={(e) => {
+                    // Start playing only after data is loaded
+                    (e.target as HTMLVideoElement).play().catch(() => {
+                      // Ignore autoplay errors
+                    });
+                  }}
+                >
+                  <source src={heroImage} type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-black/50"></div>
+              </div>
+            ) : (
+              <div 
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${heroImage})` }}
+              >
+                <div className="absolute inset-0 bg-black/50"></div>
+              </div>
+            )}
           </>
         )}
         
-        <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-24 lg:py-32 relative z-10">
           {breadcrumbItems && <Breadcrumbs items={breadcrumbItems} />}
           <div className="max-w-4xl">
-            <div className="inline-block px-4 py-2 bg-[#00A5DF] text-white rounded-full mb-6">
+            <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-[#00A5DF] text-white rounded-full mb-4 sm:mb-6 text-xs sm:text-sm">
               {subtitle}
             </div>
-            <h1 className="text-white mb-6" style={{ fontSize: '64px', lineHeight: '1.1' }}>
+            <h1 className="text-white mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               {title}
             </h1>
-            <p className="text-gray-100 mb-10 max-w-2xl" style={{ fontSize: '18px', lineHeight: '1.7' }}>
+            <p className="text-gray-100 mb-6 sm:mb-8 md:mb-10 max-w-2xl text-base sm:text-lg leading-relaxed">
               {heroDescription}
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
               <a 
-                href="#contact" 
-                className="bg-[#00A5DF] text-white px-8 py-4 rounded-md hover:bg-[#0094c9] transition-colors inline-block"
+                href="/contact" 
+                className="bg-[#00A5DF] text-white px-6 py-3 sm:px-8 sm:py-4 rounded-md hover:bg-[#0094c9] transition-colors inline-block text-center text-sm sm:text-base font-medium"
               >
                 {ctaButtonText}
               </a>
               <a 
-                href="#about" 
-                className="bg-white text-black border-2 border-white px-8 py-4 rounded-md hover:bg-gray-100 transition-colors inline-block"
+                href="/about" 
+                className="bg-white text-black border-2 border-white px-6 py-3 sm:px-8 sm:py-4 rounded-md hover:bg-gray-100 transition-colors inline-block text-center text-sm sm:text-base font-medium"
               >
                 About Teasy
               </a>
@@ -132,91 +154,91 @@ export function ServicePageTemplate({
 
       {/* Benefits Section - White Background */}
       <section className="bg-white">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          <div className="max-w-3xl mb-16">
-            <h2 className="text-black mb-4" style={{ fontSize: '48px', lineHeight: '1.1' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 lg:py-24">
+          <div className="max-w-3xl mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-black mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
               {benefitsTitle}
             </h2>
-            <p className="text-gray-600" style={{ fontSize: '18px', lineHeight: '1.7' }}>
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
               {benefitsDescription}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <ul className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {benefits.map((benefit, index) => (
-              <div key={index} className="flex gap-4">
-                <div className="flex-shrink-0 mt-1">
-                  <CheckCircle2 className="w-6 h-6 text-[#00A5DF]" />
+              <li key={index} className="flex gap-3 sm:gap-4">
+                <div className="flex-shrink-0 mt-0.5 sm:mt-1" aria-hidden="true">
+                  <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-[#00A5DF]" />
                 </div>
-                <div>
-                  <h3 className="text-black mb-3">{benefit.title}</h3>
-                  <p className="text-gray-600" style={{ fontSize: '16px', lineHeight: '1.6' }}>
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-black mb-2 sm:mb-3 text-base sm:text-lg font-semibold">{benefit.title}</h3>
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                     {benefit.description}
                   </p>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
       {/* Process Section - Black Background */}
       <section className="bg-black">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          <div className="max-w-3xl mb-16">
-            <h2 className="text-white mb-4" style={{ fontSize: '48px', lineHeight: '1.1' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 lg:py-24">
+          <div className="max-w-3xl mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-white mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
               {processTitle}
             </h2>
-            <p className="text-gray-300" style={{ fontSize: '18px', lineHeight: '1.7' }}>
+            <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
               {processDescription}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <ol className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8" aria-label="Process steps">
             {processSteps.map((step, index) => (
-              <div key={index} className="relative">
-                <div className="text-[#00A5DF] mb-4" style={{ fontSize: '48px', lineHeight: '1' }}>
+              <li key={index} className="relative">
+                <div className="text-[#00A5DF] mb-3 sm:mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-none" aria-hidden="true">
                   {step.number}
                 </div>
-                <h3 className="text-white mb-3">{step.title}</h3>
-                <p className="text-gray-300" style={{ fontSize: '16px', lineHeight: '1.6' }}>
+                <h3 className="text-white mb-2 sm:mb-3 text-base sm:text-lg font-semibold">{step.title}</h3>
+                <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
                   {step.description}
                 </p>
                 {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-full w-full h-px bg-gray-200 -translate-x-4" />
+                  <div className="hidden lg:block absolute top-6 sm:top-8 left-full w-full h-px bg-gray-200 -translate-x-4" aria-hidden="true" />
                 )}
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
       {/* Results Section - White Background */}
       <section className="bg-white">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          <div className="max-w-3xl mb-16">
-            <h2 className="text-black mb-4" style={{ fontSize: '48px', lineHeight: '1.1' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 lg:py-24">
+          <div className="max-w-3xl mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-black mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
               {resultsTitle}
             </h2>
-            <p className="text-gray-600" style={{ fontSize: '18px', lineHeight: '1.7' }}>
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
               {resultsDescription}
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 md:mb-12">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-[#00A5DF] mb-2" style={{ fontSize: '48px', lineHeight: '1' }}>
+                <div className="text-[#00A5DF] mb-1 sm:mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-none">
                   {stat.value}
                 </div>
-                <p className="text-gray-600">{stat.label}</p>
+                <p className="text-gray-600 text-xs sm:text-sm md:text-base">{stat.label}</p>
               </div>
             ))}
           </div>
 
           {caseStudyText && (
-            <div className="max-w-3xl mx-auto p-8 border border-gray-200 rounded-lg">
-              <p className="text-gray-600" style={{ fontSize: '18px', lineHeight: '1.7' }}>
+            <div className="max-w-3xl mx-auto p-4 sm:p-6 md:p-8 border border-gray-200 rounded-lg">
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
                 {caseStudyText}
               </p>
             </div>
@@ -226,18 +248,18 @@ export function ServicePageTemplate({
 
       {/* FAQ Section - White Background */}
       <section className="bg-white">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          <div className="max-w-3xl mb-16">
-            <h2 className="text-black mb-4" style={{ fontSize: '48px', lineHeight: '1.1' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 lg:py-24">
+          <div className="max-w-3xl mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-black mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
               Frequently Asked Questions
             </h2>
           </div>
 
-          <div className="max-w-3xl space-y-8">
+          <div className="max-w-3xl space-y-6 sm:space-y-8">
             {faqs.map((faq, index) => (
-              <div key={index} className="border-b border-gray-200 pb-8 last:border-b-0">
-                <h3 className="text-black mb-3">{faq.question}</h3>
-                <p className="text-gray-600" style={{ fontSize: '16px', lineHeight: '1.6' }}>
+              <div key={index} className="border-b border-gray-200 pb-6 sm:pb-8 last:border-b-0">
+                <h3 className="text-black mb-2 sm:mb-3 text-base sm:text-lg font-semibold">{faq.question}</h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                   {faq.answer}
                 </p>
               </div>

@@ -9,9 +9,9 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 
 export function AdultSEOPage() {
   const breadcrumbItems = [
-    { label: 'Home', href: '#' },
-    { label: 'Services', href: '#services' },
-    { label: 'Adult SEO', href: '#adult-seo' }
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/#services' },
+    { label: 'Adult SEO', href: '/adult-seo' }
   ];
 
   return (
@@ -39,7 +39,7 @@ export function AdultSEOPage() {
           title="Adult SEO Services"
           subtitle="Adult Search Engine Optimization"
           heroDescription="A decade of proven adult-industry SEO expertise that boosts visibility, trust, and revenue—safely and sustainably."
-          heroImage="https://images.unsplash.com/photo-1542744094-f77e9f7a10b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nJTIwd29ya3NwYWNlfGVufDF8fHx8MTc2Mjk5Njk3N3ww&ixlib=rb-4.1.0&q=80&w=1080"
+          heroImage="/media/adult-seo-services.mp4"
 
           // Benefits Section
           benefitsTitle="Why Choose Our Adult SEO Services"

@@ -42,7 +42,7 @@ export function WhyChooseUs() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
-            <div key={index} className="text-center">
+            <article key={index} className="text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-[#00A5DF] text-white rounded-lg mb-4">
                 {feature.icon}
               </div>
@@ -50,7 +50,7 @@ export function WhyChooseUs() {
               <p className="text-gray-300" style={{ fontSize: '16px', lineHeight: '1.6' }}>
                 {feature.description}
               </p>
-            </div>
+            </article>
           ))}
         </div>
       </div>

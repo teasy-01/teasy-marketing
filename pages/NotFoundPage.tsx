@@ -2,6 +2,7 @@ import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { SEOHead } from '../components/SEOHead';
 import { AlertCircle, Home, Search } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function NotFoundPage() {
   return (
@@ -32,21 +33,21 @@ export function NotFoundPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="#"
+              <Link
+                to="/"
                 className="inline-flex items-center gap-2 bg-[#00A5DF] text-white px-8 py-4 hover:bg-[#0094cc] transition-colors"
               >
                 <Home className="w-5 h-5" />
                 <span style={{ fontSize: '18px' }}>Go to Homepage</span>
-              </a>
+              </Link>
               
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="inline-flex items-center gap-2 bg-black text-white px-8 py-4 hover:bg-gray-900 transition-colors"
               >
                 <Search className="w-5 h-5" />
                 <span style={{ fontSize: '18px' }}>Contact Us</span>
-              </a>
+              </Link>
             </div>
 
             {/* Quick Links */}
@@ -55,48 +56,48 @@ export function NotFoundPage() {
                 Popular Pages
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
-                <a
-                  href="#adult-seo"
+                <Link
+                  to="/adult-seo"
                   className="text-gray-600 hover:text-[#00A5DF] transition-colors"
                   style={{ fontSize: '16px' }}
                 >
                   Adult SEO
-                </a>
-                <a
-                  href="#adult-social-media"
+                </Link>
+                <Link
+                  to="/adult-social-media"
                   className="text-gray-600 hover:text-[#00A5DF] transition-colors"
                   style={{ fontSize: '16px' }}
                 >
                   Social Media
-                </a>
-                <a
-                  href="#adult-website-design"
+                </Link>
+                <Link
+                  to="/adult-website-design"
                   className="text-gray-600 hover:text-[#00A5DF] transition-colors"
                   style={{ fontSize: '16px' }}
                 >
                   Website Design
-                </a>
-                <a
-                  href="#about"
+                </Link>
+                <Link
+                  to="/about"
                   className="text-gray-600 hover:text-[#00A5DF] transition-colors"
                   style={{ fontSize: '16px' }}
                 >
                   About Us
-                </a>
-                <a
-                  href="#blog"
+                </Link>
+                <Link
+                  to="/blog"
                   className="text-gray-600 hover:text-[#00A5DF] transition-colors"
                   style={{ fontSize: '16px' }}
                 >
                   Blog
-                </a>
-                <a
-                  href="#contact"
+                </Link>
+                <Link
+                  to="/contact"
                   className="text-gray-600 hover:text-[#00A5DF] transition-colors"
                   style={{ fontSize: '16px' }}
                 >
                   Contact
-                </a>
+                </Link>
               </div>
             </div>
           </div>

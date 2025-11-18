@@ -27,24 +27,6 @@ export function Testimonials() {
       author: "Emily Rodriguez",
       role: "Head of Digital",
       company: "Summit Solutions"
-    },
-    {
-      quote: "What sets them apart is their ability to move fast without sacrificing quality. Within two months, we had a complete marketing system that drives consistent results. Highly recommend.",
-      author: "David Park",
-      role: "CMO",
-      company: "Velocity Commerce"
-    },
-    {
-      quote: "Their team feels like an extension of ours. The level of expertise and dedication they bring is unmatched. We've worked with several agencies before—none come close to the results we're seeing now.",
-      author: "Jessica Martinez",
-      role: "Director of Growth",
-      company: "Innovate Pro"
-    },
-    {
-      quote: "The transparency and communication are refreshing. We get real-time access to our data and weekly strategic reviews. They've helped us scale from $500K to $3M in annual revenue.",
-      author: "Ryan Thompson",
-      role: "Co-Founder",
-      company: "CloudBridge"
     }
   ];
 
@@ -68,25 +50,25 @@ export function Testimonials() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div 
+            <article 
               key={index}
               className="bg-white p-8 border border-gray-200 rounded-lg hover:border-[#00A5DF] transition-colors"
             >
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-1 mb-4" aria-label="5 out of 5 stars">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-[#00A5DF] text-[#00A5DF]" />
+                  <Star key={i} className="w-5 h-5 fill-[#00A5DF] text-[#00A5DF]" aria-hidden="true" />
                 ))}
               </div>
-              <p className="text-gray-600 mb-6" style={{ fontSize: '16px', lineHeight: '1.6' }}>
+              <blockquote className="text-gray-600 mb-6" style={{ fontSize: '16px', lineHeight: '1.6' }}>
                 "{testimonial.quote}"
-              </p>
-              <div>
-                <p className="text-black">{testimonial.author}</p>
+              </blockquote>
+              <footer>
+                <p className="text-black font-semibold">{testimonial.author}</p>
                 <p className="text-gray-500" style={{ fontSize: '14px' }}>
                   {testimonial.role}, {testimonial.company}
                 </p>
-              </div>
-            </div>
+              </footer>
+            </article>
           ))}
         </div>
       </div>

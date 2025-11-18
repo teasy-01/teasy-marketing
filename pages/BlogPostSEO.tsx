@@ -8,9 +8,9 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 
 export function BlogPostSEO() {
   const breadcrumbItems = [
-    { label: 'Home', href: '#' },
-    { label: 'Blog', href: '#blog' },
-    { label: 'Adult SEO Guide', href: '#blog-post-seo' }
+    { label: 'Home', href: '/' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Adult SEO Guide', href: '/blog-post-seo' }
   ];
 
   return (
@@ -331,7 +331,7 @@ export function BlogPostSEO() {
                     Our team of adult industry marketing experts brings decades of combined experience in SEO, content marketing, and digital strategy. We specialize in helping adult businesses navigate the unique challenges of online marketing while delivering measurable results.
                   </p>
                   <a 
-                    href="#blog" 
+                    href="/blog" 
                     className="inline-flex items-center gap-2 text-[#00A5DF] hover:gap-3 transition-all" 
                     style={{ fontSize: '14px' }}
                   >

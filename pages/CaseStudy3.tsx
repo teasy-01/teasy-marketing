@@ -9,7 +9,7 @@ export function CaseStudy3() {
     { name: 'Snapchat Marketing SEO Success Story', url: 'https://teasymarketing.com/case-study-snapchat-seo' }
   ];
 
-  const caseStudy3Image = 'https://images.unsplash.com/photo-1611262588024-d12430b98920?w=1200&h=600&fit=crop';
+  const caseStudy3Image = '/media/snapchat-marketing.jpg';
 
   const data = {
     industry: "Snapchat Marketing",

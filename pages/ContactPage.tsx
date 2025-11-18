@@ -8,8 +8,8 @@ import { useState } from 'react';
 
 export function ContactPage() {
   const breadcrumbItems = [
-    { label: 'Home', href: '#' },
-    { label: 'Contact', href: '#contact' }
+    { label: 'Home', href: '/' },
+    { label: 'Contact', href: '/contact' }
   ];
 
   const [formData, setFormData] = useState({
@@ -143,10 +143,10 @@ ${formData.message}
         {/* Contact Info Cards - Black Background */}
         <section className="bg-black">
           <div className="max-w-7xl mx-auto px-6 py-24">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <address className="grid grid-cols-1 md:grid-cols-3 gap-8 not-italic">
               {contactInfo.map((info, index) => (
                 <div key={index} className="text-center">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#00A5DF]/10 text-[#00A5DF] mb-4">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#00A5DF]/10 text-[#00A5DF] mb-4" aria-hidden="true">
                     {info.icon}
                   </div>
                   <h3 className="text-white mb-2" style={{ fontSize: '18px' }}>
@@ -167,7 +167,7 @@ ${formData.message}
                   )}
                 </div>
               ))}
-            </div>
+            </address>
           </div>
         </section>
 

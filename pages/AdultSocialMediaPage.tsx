@@ -9,9 +9,9 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 
 export function AdultSocialMediaPage() {
   const breadcrumbItems = [
-    { label: 'Home', href: '#' },
-    { label: 'Services', href: '#services' },
-    { label: 'Adult Social Media', href: '#adult-social-media' }
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/#services' },
+    { label: 'Adult Social Media', href: '/adult-social-media' }
   ];
 
   return (
@@ -38,7 +38,7 @@ export function AdultSocialMediaPage() {
           title="Adult Social Media Marketing"
           subtitle="Adult Social Media Strategy & Management"
           heroDescription="Grow your audience, increase engagement, and strengthen your brand’s presence with social strategies built specifically for the adult industry."
-          heroImage="https://images.unsplash.com/photo-1611162617474-5b21e879e113?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMG1hcmtldGluZ3xlbnwxfHx8fDE3NjI5OTY5Nzd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+          heroImage="/media/adult-social-media-marketing.mp4"
 
           // Benefits Section
           benefitsTitle="Why Choose Our Adult Social Media Services"
