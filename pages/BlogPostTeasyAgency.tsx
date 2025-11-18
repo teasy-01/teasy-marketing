@@ -206,6 +206,33 @@ export function BlogPostTeasyAgency() {
                 Get Started Today
               </Link>
             </div>
+
+            {/* Author Box */}
+            <div className="mt-16 pt-8 border-t border-gray-200">
+              <div className="flex flex-col md:flex-row gap-6 items-start">
+                <div className="flex-shrink-0">
+                  <div className="w-20 h-20 rounded-full bg-[#00A5DF]/10 flex items-center justify-center">
+                    <span className="text-[#00A5DF] text-2xl font-bold">TE</span>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-black mb-2" style={{ fontSize: '20px', fontWeight: 'bold' }}>
+                    TEASY Team
+                  </h4>
+                  <p className="text-gray-600 mb-4" style={{ fontSize: '16px', lineHeight: '1.6' }}>
+                    The TEASY Team brings together years of hands-on experience in creator management, adult industry marketing, and brand building. We've worked with hundreds of creators and brands to scale their presence, grow their revenue, and build lasting success in the adult industry.
+                  </p>
+                  <Link 
+                    to="/about" 
+                    className="inline-flex items-center gap-2 text-[#00A5DF] hover:text-[#0094c9] transition-colors"
+                    style={{ fontSize: '14px' }}
+                  >
+                    Learn more about TEASY
+                    <span>→</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </article>
       </main>
