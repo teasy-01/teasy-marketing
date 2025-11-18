@@ -5,7 +5,6 @@ import { BreadcrumbSchema } from '../components/StructuredData';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { Mail, MapPin, Clock, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
-import emailjs from '@emailjs/browser';
 
 export function ContactPage() {
   const breadcrumbItems = [
@@ -32,47 +31,60 @@ export function ContactPage() {
     setErrorMessage('');
 
     try {
-      // EmailJS configuration
-      // You'll need to set these up in EmailJS dashboard and add them as environment variables
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
-
-      // Initialize EmailJS with public key
-      emailjs.init(publicKey);
-
-      // Prepare template parameters
-      const templateParams = {
-        to_email: 'team@teasymarketing.com',
-        from_name: formData.name,
-        from_email: formData.email,
-        company: formData.company || 'Not provided',
-        phone: formData.phone || 'Not provided',
-        service: formData.service,
-        message: formData.message,
-        subject: `Contact Form Submission from ${formData.name}`,
-      };
-
-      // Send email via EmailJS
-      await emailjs.send(serviceId, templateId, templateParams);
-
-      setIsSubmitted(true);
+      // Using Web3Forms - simple form service
+      // Check environment variable first, then fallback to hardcoded key
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '64973fa4-13eb-47a7-943f-2342bd307ff7';
       
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({
-          name: '',
-          email: '',
-          company: '',
-          phone: '',
-          service: '',
-          message: ''
-        });
-      }, 3000);
-    } catch (error) {
+      if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+        throw new Error('Form service not configured. Please get your access key from https://web3forms.com and add VITE_WEB3FORMS_ACCESS_KEY to Vercel environment variables.');
+      }
+
+      const formDataToSend = new FormData();
+      formDataToSend.append('access_key', accessKey);
+      formDataToSend.append('subject', `Contact Form Submission from ${formData.name}`);
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('company', formData.company || 'Not provided');
+      formDataToSend.append('phone', formData.phone || 'Not provided');
+      formDataToSend.append('service', formData.service);
+      formDataToSend.append('message', formData.message);
+      formDataToSend.append('to', 'team@teasymarketing.com');
+      formDataToSend.append('from_name', 'TEASY Marketing Contact Form');
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formDataToSend
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+        
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            name: '',
+            email: '',
+            company: '',
+            phone: '',
+            service: '',
+            message: ''
+          });
+        }, 3000);
+      } else {
+        throw new Error(result.message || 'Failed to send message');
+      }
+    } catch (error: any) {
       console.error('Error sending email:', error);
-      setErrorMessage('Failed to send message. Please email us directly at team@teasymarketing.com');
+      
+      // Provide helpful error messages
+      if (error.message && error.message.includes('not configured')) {
+        setErrorMessage('Form service is not configured yet. Please contact us directly at team@teasymarketing.com. Setup instructions: See WEB3FORMS_SETUP.md');
+      } else {
+        setErrorMessage(`Failed to send message. Please email us directly at team@teasymarketing.com`);
+      }
     } finally {
       setIsSubmitting(false);
     }
