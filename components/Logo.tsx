@@ -1,6 +1,6 @@
 export function Logo({ variant = 'light', className = '' }: { variant?: 'light' | 'dark'; className?: string }) {
   return (
-    <div className={className || "h-4 flex items-center"}>
+    <div className={className || "h-8 sm:h-6 md:h-4 flex items-center"}>
       <img 
         src="/media/teasy-marketing-logo.png" 
         alt="TEASY Marketing" 
