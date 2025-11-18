@@ -1,3 +1,4 @@
+import React from 'react';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { TrustLogos } from './TrustLogos';
@@ -61,6 +62,9 @@ interface ServicePageProps {
   
   // Optional TrustLogos after hero
   showTrustLogos?: boolean;
+  
+  // Optional content to insert between Results and FAQ sections
+  contentBetweenResultsAndFAQ?: React.ReactNode;
 }
 
 export function ServicePageTemplate({
@@ -82,6 +86,7 @@ export function ServicePageTemplate({
   faqs,
   ctaButtonText,
   showTrustLogos,
+  contentBetweenResultsAndFAQ,
 }: ServicePageProps) {
   return (
     <div className="min-h-screen">
@@ -245,6 +250,9 @@ export function ServicePageTemplate({
           )}
         </div>
       </section>
+
+      {/* Optional content between Results and FAQ */}
+      {contentBetweenResultsAndFAQ}
 
       {/* FAQ Section - White Background */}
       <section className="bg-white">

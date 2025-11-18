@@ -3,6 +3,7 @@ import { Footer } from '../components/Footer';
 import { ServicePageTemplate } from '../components/ServicePageTemplate';
 import { CTABanner } from '../components/CTABanner';
 import { TrustLogos } from '../components/TrustLogos';
+import { ContentShowcase } from '../components/ContentShowcase';
 import { SEOHead } from '../components/SEOHead';
 import { ServiceSchema, BreadcrumbSchema } from '../components/StructuredData';
 import { Breadcrumbs } from '../components/Breadcrumbs';
@@ -133,6 +134,9 @@ export function AdultContentMarketingPage() {
           
           // Show TrustLogos after hero
           showTrustLogos={true}
+          
+          // Content between Results and FAQ
+          contentBetweenResultsAndFAQ={<ContentShowcase />}
         />
         <CTABanner />
       </main>

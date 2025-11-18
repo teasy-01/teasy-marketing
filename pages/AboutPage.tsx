@@ -97,7 +97,7 @@ export function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
       <SEOHead
-        title="About TEASY - Adult Industry Marketing Experts | Our Story & Team"
+        title="Adult Industry Marketing Experts | TEASY Story & Team"
         description="Meet the TEASY team - industry veterans dedicated to helping adult brands grow. Founded by Alex and Taylor, we combine SEO expertise with creator-side insight for real results."
         canonical="https://teasymarketing.com/about"
         keywords="adult marketing agency team, adult industry experts, TEASY founders, adult marketing professionals"

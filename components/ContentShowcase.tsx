@@ -81,6 +81,60 @@ export function ContentShowcase() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Use Intersection Observer to load and play videos when they're visible
+  useEffect(() => {
+    const videos = document.querySelectorAll('.content-showcase-video') as NodeListOf<HTMLVideoElement>;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            // Video is visible, ensure it's loaded and playing
+            if (video.readyState === 0) {
+              video.load();
+            }
+            video.play().catch(() => {
+              // Ignore autoplay errors - browser may block autoplay
+            });
+          } else {
+            // Video is not visible, pause it to save resources
+            video.pause();
+          }
+        });
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of video is visible
+        rootMargin: '50px', // Start loading slightly before video enters viewport
+      }
+    );
+
+    videos.forEach((video) => observer.observe(video));
+
+    // Also check visible videos immediately after slider change
+    const checkVisibleVideos = () => {
+      videos.forEach((video) => {
+        const rect = video.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight + 100 && rect.bottom > -100;
+        if (isVisible && video.paused) {
+          if (video.readyState === 0) {
+            video.load();
+          }
+          video.play().catch(() => {
+            // Ignore autoplay errors
+          });
+        }
+      });
+    };
+
+    // Small delay to allow DOM to update after slider transition
+    setTimeout(checkVisibleVideos, 100);
+
+    return () => {
+      videos.forEach((video) => observer.unobserve(video));
+    };
+  }, [currentIndex, slidesToShow]);
+
   const handlePrev = () => {
     setCurrentIndex((prev) => 
       prev === 0 ? contentExamples.length - slidesToShow : prev - 1
@@ -147,12 +201,29 @@ export function ContentShowcase() {
                         loop
                         muted
                         playsInline
-                        preload="none"
-                        className="w-full h-full object-cover"
+                        preload="metadata"
+                        className="w-full h-full object-cover content-showcase-video"
                         onLoadedData={(e) => {
-                          (e.target as HTMLVideoElement).play().catch(() => {
-                            // Ignore autoplay errors
-                          });
+                          const video = e.target as HTMLVideoElement;
+                          // Only play if video is in viewport
+                          const rect = video.getBoundingClientRect();
+                          const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                          if (isVisible) {
+                            video.play().catch(() => {
+                              // Ignore autoplay errors
+                            });
+                          }
+                        }}
+                        onCanPlay={(e) => {
+                          const video = e.target as HTMLVideoElement;
+                          // Ensure video plays when it can
+                          const rect = video.getBoundingClientRect();
+                          const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                          if (isVisible && video.paused) {
+                            video.play().catch(() => {
+                              // Ignore autoplay errors
+                            });
+                          }
                         }}
                       >
                         <source src={example.video} type="video/mp4" />

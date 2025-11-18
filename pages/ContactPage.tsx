@@ -102,7 +102,7 @@ ${formData.message}
   return (
     <div className="min-h-screen bg-white">
       <SEOHead
-        title="Contact TEASY - Get in Touch | Adult Industry Marketing Agency"
+        title="Contact TEASY - Get in Touch"
         description="Ready to grow your adult brand? Contact TEASY for a free consultation. Our expert team is here to help you achieve your marketing goals. Email: team@teasymarketing.com"
         canonical="https://teasymarketing.com/contact"
         keywords="contact adult marketing agency, TEASY contact, adult marketing consultation, get in touch"

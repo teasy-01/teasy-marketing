@@ -2,6 +2,7 @@ import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { TrustLogos } from '../components/TrustLogos';
 import { CTABanner } from '../components/CTABanner';
+import { SEOHead } from '../components/SEOHead';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -21,6 +22,12 @@ export function BlogPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead
+        title="Adult Industry News and Insights - TEASY"
+        description="Featured posts by the TEASY team on the adult industry."
+        canonical="https://teasymarketing.com/blog"
+        keywords="adult industry news, adult marketing insights, TEASY blog, adult industry blog"
+      />
       <Navigation />
       <main>
         {/* Hero Section - White Background */}

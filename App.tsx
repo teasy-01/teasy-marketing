@@ -51,7 +51,7 @@ function HomePage() {
     <div className="min-h-screen bg-white">
       <SEOHead
         title="The #1 Adult Industry Marketing Agency - TEASY"
-        description="Premium marketing agency specializing in adult industry SEO, social media, content marketing, and digital strategy."
+        description="Premium adult marketing agency specializing in SEO, social media, content creation, and digital strategy."
         canonical="https://teasymarketing.com"
         keywords="adult industry marketing, adult SEO, OnlyFans marketing, adult social media, adult content marketing"
       />
