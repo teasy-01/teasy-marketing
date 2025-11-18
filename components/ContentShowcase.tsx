@@ -1,57 +1,61 @@
-import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const contentExamples = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1668453814676-c8093305fae6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBzdHVkaW8lMjBwaG90b2dyYXBoeXxlbnwxfHx8fDE3NjMwNTkyOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    title: 'Professional Studio Content'
+    video: '/media/Video-488.mp4',
+    title: 'Our Work'
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1571513722275-4b41940f54b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYXNoaW9uJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzYyOTU3MTcyfDA&ixlib=rb-4.1.0&q=80&w=1080',
-    title: 'Fashion & Lifestyle'
+    video: '/media/Video-565.mp4',
+    title: 'Our Work'
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1758613655976-e8c8f85849a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGNvbnRlbnQlMjBzaG9vdHxlbnwxfHx8fDE3NjMwNTkyOTN8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    title: 'Creative Content Shoots'
+    video: '/media/Video-809.mp4',
+    title: 'Our Work'
   },
   {
     id: 4,
-    image: 'https://images.unsplash.com/photo-1632613714614-e817d3814a8e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsaWZlc3R5bGUlMjBwaG90b2dyYXBoeXxlbnwxfHx8fDE3NjMwNTkyOTN8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    title: 'Lifestyle Photography'
+    video: '/media/Video-140.mp4',
+    title: 'Our Work'
   },
   {
     id: 5,
-    image: 'https://images.unsplash.com/photo-1635814442700-446512be496a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWF1dHklMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjI5ODA2ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    title: 'Beauty & Glamour'
+    video: '/media/Video-419.mp4',
+    title: 'Our Work'
   },
   {
     id: 6,
-    image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYXNoaW9uJTIwbW9kZWx8ZW58MXx8fHwxNzYyOTYyMjY5fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    title: 'Fashion Editorial'
+    video: '/media/Video-1.mp4',
+    title: 'Our Work'
   },
   {
     id: 7,
-    image: 'https://images.unsplash.com/photo-1557053910-d9eadeed1c58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHVkaW8lMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjI5ODQ5Mzd8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    title: 'Studio Portraits'
+    video: '/media/Video-193.mp4',
+    title: 'Our Work'
   },
   {
     id: 8,
-    image: 'https://images.unsplash.com/photo-1586734073732-fd664fbd85c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHBob3RvZ3JhcGh5fGVufDF8fHx8MTc2MzAwMTg4MHww&ixlib=rb-4.1.0&q=80&w=1080',
-    title: 'Creative Visuals'
+    video: '/media/Video-883.mp4',
+    title: 'Our Work'
   },
   {
     id: 9,
-    image: 'https://images.unsplash.com/photo-1536924430914-91f9e2041b83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcnRpc3RpYyUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MzAzOTc1OXww&ixlib=rb-4.1.0&q=80&w=1080',
-    title: 'Artistic Direction'
+    video: '/media/Video-924.mp4',
+    title: 'Our Work'
   },
   {
     id: 10,
-    image: 'https://images.unsplash.com/photo-1570394217969-3cb9e23a4068?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwaG90b2dyYXBoeXxlbnwxfHx8fDE3NjI5NjUwNjN8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    title: 'Professional Imagery'
+    video: '/media/Video-267.mp4',
+    title: 'Our Work'
+  },
+  {
+    id: 11,
+    video: '/media/Video-66.mp4',
+    title: 'Our Work'
   }
 ];
 
@@ -141,14 +145,21 @@ export function ContentShowcase() {
                   style={{ width: `calc((100% - ${(slidesToShow - 1) * 24}px) / ${slidesToShow})` }}
                 >
                   <div className="relative aspect-[9/16] bg-gray-900 rounded-lg overflow-hidden">
-                    <ImageWithFallback
-                      src={example.image}
-                      alt={example.title}
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="none"
                       className="w-full h-full object-cover"
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                      <p className="text-white">{example.title}</p>
-                    </div>
+                      onLoadedData={(e) => {
+                        (e.target as HTMLVideoElement).play().catch(() => {
+                          // Ignore autoplay errors
+                        });
+                      }}
+                    >
+                      <source src={example.video} type="video/mp4" />
+                    </video>
                   </div>
                 </div>
               ))}
