@@ -46,8 +46,7 @@
         }
       ],
       "destination": "https://teasymarketing.com/:path*",
-      "permanent": true,
-      "statusCode": 301
+      "permanent": true
     }
   ],
   "rewrites": [
