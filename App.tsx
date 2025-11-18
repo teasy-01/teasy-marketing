@@ -107,8 +107,18 @@ function ScrollToTop() {
         }
       }, 100);
     } else {
-      // Scroll to top for page changes
-      window.scrollTo(0, 0);
+      // Scroll to top for page changes - use multiple methods for reliability
+      // Immediate scroll without animation
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      
+      // Also scroll after a small delay to ensure content is loaded
+      setTimeout(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      }, 0);
     }
   }, [pathname]);
 
