@@ -211,8 +211,12 @@ export function BlogPostTeasyAgency() {
             <div className="mt-16 pt-8 border-t border-gray-200">
               <div className="flex flex-col md:flex-row gap-6 items-start">
                 <div className="flex-shrink-0">
-                  <div className="w-20 h-20 rounded-full bg-[#00A5DF]/10 flex items-center justify-center">
-                    <span className="text-[#00A5DF] text-2xl font-bold">TE</span>
+                  <div className="w-20 h-20 rounded-full overflow-hidden bg-gray-200">
+                    <img
+                      src="/media/teasy-introduction.jpg"
+                      alt="TEASY Team"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
                 <div className="flex-1">
