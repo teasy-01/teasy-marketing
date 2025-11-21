@@ -106,7 +106,7 @@ export function Navigation() {
             <div style={{ 
               position: 'static', 
               width: '100%', 
-              marginBottom: isMobileServicesOpen ? '280px' : '16px',
+              marginBottom: isMobileServicesOpen ? '280px' : '24px',
               display: 'block',
               float: 'none',
               clear: 'both',
