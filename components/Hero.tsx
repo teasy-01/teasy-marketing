@@ -9,7 +9,7 @@ export function Hero() {
           loop
           muted
           playsInline
-          preload="none"
+          preload="metadata"
           poster="/media/teasy-adult-marketing-poster.jpg"
           className="absolute inset-0 w-full h-full object-cover"
           onLoadedData={(e) => {

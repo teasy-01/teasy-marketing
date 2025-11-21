@@ -116,7 +116,7 @@ export function AboutPage() {
               loop
               muted
               playsInline
-              preload="none"
+              preload="metadata"
               poster="/media/about-teasy-marketing-poster.jpg"
               className="absolute inset-0 w-full h-full object-cover"
               onLoadedData={(e) => {
