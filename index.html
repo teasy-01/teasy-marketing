@@ -14,10 +14,12 @@
     <!-- Critical CSS for logo to prevent FOUC -->
     <style>
       /* Prevent logo flash of unstyled content - applies immediately before Tailwind loads */
+      /* Mobile-first: Force mobile logo size */
       nav img[alt="TEASY Marketing"],
-      nav a[href="/"] img {
+      nav a[href="/"] img,
+      nav a[href="/"] > div > img {
         max-height: 38px !important;
-        height: 100% !important;
+        height: 38px !important;
         width: auto !important;
         object-fit: contain !important;
       }
@@ -25,29 +27,38 @@
       nav > div > div:first-child > div {
         height: 38px !important;
         min-height: 38px !important;
+        max-height: 38px !important;
         display: flex !important;
         align-items: center !important;
       }
+      /* Tablet */
       @media (min-width: 768px) {
         nav img[alt="TEASY Marketing"],
-        nav a[href="/"] img {
+        nav a[href="/"] img,
+        nav a[href="/"] > div > img {
           max-height: 29px !important;
+          height: 29px !important;
         }
         nav > div > div:first-child > a,
         nav > div > div:first-child > div {
           height: 29px !important;
           min-height: 29px !important;
+          max-height: 29px !important;
         }
       }
+      /* Desktop */
       @media (min-width: 1024px) {
         nav img[alt="TEASY Marketing"],
-        nav a[href="/"] img {
+        nav a[href="/"] img,
+        nav a[href="/"] > div > img {
           max-height: 20px !important;
+          height: 20px !important;
         }
         nav > div > div:first-child > a,
         nav > div > div:first-child > div {
           height: 20px !important;
           min-height: 20px !important;
+          max-height: 20px !important;
         }
       }
       /* Force mobile menu to single column layout - aggressive overrides */
