@@ -76,9 +76,6 @@ export function Navigation() {
           <a href="/#faq-section" className="text-gray-300 hover:text-white transition-colors">
             FAQ
           </a>
-          <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">
-            Contact
-          </Link>
           <Link 
             to="/contact" 
             className="bg-[#00A5DF] text-white px-6 py-2 rounded-md hover:bg-[#0094c9] transition-colors"
@@ -223,14 +220,6 @@ export function Navigation() {
             >
               FAQ
             </a>
-            <Link 
-              to="/contact" 
-              className="text-gray-300 hover:text-white transition-colors block"
-              style={{ marginBottom: '16px', padding: '8px 0' }}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Contact
-            </Link>
             <Link 
               to="/contact" 
               className="bg-[#00A5DF] text-white px-6 py-3 rounded-md hover:bg-[#0094c9] transition-colors block"

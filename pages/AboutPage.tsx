@@ -117,6 +117,7 @@ export function AboutPage() {
               muted
               playsInline
               preload="none"
+              poster="/media/about-teasy-marketing-poster.jpg"
               className="absolute inset-0 w-full h-full object-cover"
               onLoadedData={(e) => {
                 // Start playing only after data is loaded
