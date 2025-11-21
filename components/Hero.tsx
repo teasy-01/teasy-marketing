@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 
 export function Hero() {
   return (
-    <section className="bg-white relative min-h-[650px] md:min-h-0">
-      <div className="absolute inset-0 overflow-hidden">
+    <section className="bg-black relative min-h-[650px] md:min-h-0">
+      <div className="absolute inset-0 overflow-hidden bg-black">
         <video
           autoPlay
           loop
@@ -17,6 +17,12 @@ export function Hero() {
             (e.target as HTMLVideoElement).play().catch(() => {
               // Ignore autoplay errors
             });
+          }}
+          onPosterLoad={() => {
+            // Poster loaded successfully
+          }}
+          onPosterError={() => {
+            // Poster failed to load, ensure black background shows
           }}
       >
           <source src="/media/teasy-adult-marketing.mp4" type="video/mp4" />

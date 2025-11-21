@@ -110,7 +110,7 @@ export function AboutPage() {
       <main>
         {/* Hero Section - Black Background */}
         <section className="bg-black relative">
-          <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden bg-black">
             <video
               autoPlay
               loop
@@ -124,6 +124,12 @@ export function AboutPage() {
                 (e.target as HTMLVideoElement).play().catch(() => {
                   // Ignore autoplay errors
                 });
+              }}
+              onPosterLoad={() => {
+                // Poster loaded successfully
+              }}
+              onPosterError={() => {
+                // Poster failed to load, ensure black background shows
               }}
             >
               <source src="/media/about-teasy-marketing.mp4" type="video/mp4" />

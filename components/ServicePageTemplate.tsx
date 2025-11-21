@@ -91,11 +91,11 @@ export function ServicePageTemplate({
   return (
     <div className="min-h-screen">
       {/* Hero Section - Full-width with background image or video */}
-      <section className="bg-white relative min-h-[650px] sm:min-h-[600px] md:min-h-0">
+      <section className="bg-black relative min-h-[650px] sm:min-h-[600px] md:min-h-0">
         {heroImage && (
           <>
             {heroImage.endsWith('.mp4') ? (
-              <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute inset-0 overflow-hidden bg-black">
                 <video
                   autoPlay
                   loop
@@ -109,6 +109,12 @@ export function ServicePageTemplate({
                     (e.target as HTMLVideoElement).play().catch(() => {
                       // Ignore autoplay errors
                     });
+                  }}
+                  onPosterLoad={() => {
+                    // Poster loaded successfully
+                  }}
+                  onPosterError={() => {
+                    // Poster failed to load, ensure black background shows
                   }}
                 >
                   <source src={heroImage} type="video/mp4" />
