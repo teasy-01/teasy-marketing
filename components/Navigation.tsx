@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 export function Navigation() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
 
   const services = [
     { name: 'Adult SEO', href: '/adult-seo' },
@@ -89,7 +90,11 @@ export function Navigation() {
         {/* Mobile Menu Button */}
         <button 
           className="md:hidden text-white"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          onClick={() => {
+            setIsMobileMenuOpen(!isMobileMenuOpen);
+            setIsServicesOpen(false); // Reset desktop services state
+            setIsMobileServicesOpen(false); // Reset mobile services state
+          }}
           aria-label="Toggle menu"
         >
           {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -99,79 +104,142 @@ export function Navigation() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-black border-t border-gray-800">
-          <div className="px-6 py-4 flex flex-col gap-4">
+          <div className="px-6 py-4" style={{ display: 'block' }}>
             {/* Services Section */}
-            <div>
+            <div style={{ 
+              position: 'static', 
+              width: '100%', 
+              marginBottom: isMobileServicesOpen ? '280px' : '16px',
+              display: 'block',
+              float: 'none',
+              clear: 'both',
+              zIndex: '1'
+            }}>
               <button 
-                className="text-gray-300 hover:text-white transition-colors flex items-center gap-1 w-full text-left"
-                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  width: '100%',
+                  textAlign: 'left',
+                  padding: '8px 0',
+                  background: 'transparent',
+                  border: 'none',
+                  color: '#d1d5db',
+                  cursor: 'pointer',
+                  marginBottom: '0',
+                  position: 'relative',
+                  zIndex: '1',
+                  flexDirection: 'row',
+                  verticalAlign: 'middle'
+                }}
+                onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
               >
-                Services
-                <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
+                <span style={{ display: 'inline-block', lineHeight: '1.5' }}>Services</span>
+                <ChevronDown 
+                  className={`w-4 h-4 transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`}
+                  style={{ flexShrink: 0, marginLeft: 'auto', display: 'inline-flex', alignItems: 'center' }}
+                />
               </button>
-              {isServicesOpen && (
-                <ul className="mt-2 ml-4 flex flex-col gap-2">
+              {isMobileServicesOpen && (
+                <div 
+                  className="mobile-services-submenu"
+                  style={{ 
+                    marginTop: '8px',
+                    marginBottom: '48px',
+                    paddingLeft: '16px',
+                    paddingBottom: '24px',
+                    position: 'relative',
+                    width: '100%',
+                    display: 'block',
+                    float: 'none',
+                    clear: 'both',
+                    zIndex: '1'
+                  }}
+                >
                   {services.map((service, index) => (
-                    <li key={index}>
-                      <Link
-                        to={service.href}
-                        className="text-gray-400 hover:text-white transition-colors py-2"
-                        style={{ fontSize: '14px' }}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {service.name}
-                      </Link>
-                    </li>
+                    <Link
+                      key={index}
+                      to={service.href}
+                      style={{ 
+                        fontSize: '14px', 
+                        padding: '8px 0', 
+                        display: 'block',
+                        width: '100%',
+                        color: '#9ca3af',
+                        textDecoration: 'none',
+                        position: 'relative',
+                        zIndex: '1'
+                      }}
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        setIsMobileServicesOpen(false);
+                      }}
+                    >
+                      {service.name}
+                    </Link>
                   ))}
-                </ul>
+                </div>
               )}
             </div>
 
             <Link 
               to="/about" 
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-white transition-colors block"
+              style={{ marginBottom: '16px', padding: '8px 0' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About
             </Link>
             <Link 
               to="/blog" 
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-white transition-colors block"
+              style={{ marginBottom: '16px', padding: '8px 0' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Blog
             </Link>
             <a 
               href="/#case-studies-section" 
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-white transition-colors block"
+              style={{ marginBottom: '16px', padding: '8px 0' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Case Studies
             </a>
             <a 
               href="/#testimonials-section" 
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-white transition-colors block"
+              style={{ marginBottom: '16px', padding: '8px 0' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Testimonials
             </a>
             <a 
               href="/#faq-section" 
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-white transition-colors block"
+              style={{ marginBottom: '16px', padding: '8px 0' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               FAQ
             </a>
             <Link 
               to="/contact" 
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-white transition-colors block"
+              style={{ marginBottom: '16px', padding: '8px 0' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contact
             </Link>
             <Link 
               to="/contact" 
-              className="bg-[#00A5DF] text-white px-6 py-3 rounded-md hover:bg-[#0094c9] transition-colors text-center"
+              className="bg-[#00A5DF] text-white px-6 py-3 rounded-md hover:bg-[#0094c9] transition-colors block"
+              style={{ 
+                marginTop: '16px',
+                textAlign: 'center',
+                display: 'block',
+                width: '100%'
+              }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contact Us

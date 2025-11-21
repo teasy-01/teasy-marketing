@@ -50,6 +50,36 @@
           min-height: 20px !important;
         }
       }
+      /* Force mobile menu to single column layout - aggressive overrides */
+      @media (max-width: 767px) {
+        nav > div[class*="md:hidden"],
+        nav > div[class*="md:hidden"] > div,
+        nav > div[class*="md:hidden"] > div > div,
+        nav > div[class*="md:hidden"] > div > div > div,
+        .mobile-services-submenu,
+        .mobile-services-submenu > * {
+          display: block !important;
+          width: 100% !important;
+          float: none !important;
+          position: static !important;
+          left: auto !important;
+          right: auto !important;
+          top: auto !important;
+          bottom: auto !important;
+          transform: none !important;
+          flex-direction: column !important;
+          flex-wrap: nowrap !important;
+          grid-template-columns: none !important;
+          grid-column: auto !important;
+        }
+        nav > div[class*="md:hidden"] a,
+        nav > div[class*="md:hidden"] button {
+          display: block !important;
+          width: 100% !important;
+          float: none !important;
+          position: static !important;
+        }
+      }
     </style>
     <!-- Preconnect to external domains for faster loading -->
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
