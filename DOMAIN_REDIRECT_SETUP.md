@@ -94,3 +94,4 @@ After DNS propagation (up to 48 hours):
 
 Once domains are added in Vercel, redirects will work automatically!
 
+

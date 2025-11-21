@@ -91,3 +91,4 @@ VITE_EMAILJS_PUBLIC_KEY=your_public_key_here
 
 The Public Key is safe to expose in client-side code (it's public). However, make sure your EmailJS account has proper security settings enabled.
 
+

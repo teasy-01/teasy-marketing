@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export function Hero() {
   return (
-    <section className="bg-black relative min-h-[650px] md:min-h-0">
+    <section className="bg-black relative min-h-[650px] md:min-h-[600px]">
       <div className="absolute inset-0 overflow-hidden bg-black">
         <video
           autoPlay
@@ -30,7 +30,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10 h-full min-h-[650px] md:min-h-0 flex items-center">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 h-full min-h-[650px] md:min-h-[600px] flex items-center">
         <div className="max-w-4xl w-full">
           <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-[#00A5DF] text-white rounded-full mb-4 sm:mb-6 text-sm sm:text-base">
             TEASY Marketing

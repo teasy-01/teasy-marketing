@@ -69,3 +69,4 @@ curl -I https://www.teasymarketing.com
 
 All should return `301 Moved Permanently` with `Location: https://teasymarketing.com/`
 
+

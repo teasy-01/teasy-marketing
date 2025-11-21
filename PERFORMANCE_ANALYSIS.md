@@ -75,3 +75,4 @@
 - [ ] Compress videos (manual step required)
 - [ ] Optimize images (manual step required)
 
+
