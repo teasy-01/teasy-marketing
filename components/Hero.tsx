@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export function Hero() {
   return (
-    <section className="bg-white relative">
+    <section className="bg-white relative min-h-[650px] md:min-h-0">
       <div className="absolute inset-0 overflow-hidden">
         <video
           autoPlay
@@ -24,9 +24,12 @@ export function Hero() {
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 relative z-10">
-        <div className="max-w-4xl">
-          <h1 className="text-white mb-6" style={{ fontSize: '64px', lineHeight: '1.1' }}>
+      <div className="max-w-7xl mx-auto px-6 relative z-10 h-full min-h-[650px] md:min-h-0 flex items-center">
+        <div className="max-w-4xl w-full">
+          <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-[#00A5DF] text-white rounded-full mb-4 sm:mb-6 text-sm sm:text-base">
+            TEASY Marketing
+          </div>
+          <h1 className="text-white mb-6 text-[50px] md:text-[64px]" style={{ lineHeight: '1.1' }}>
             The #1 Adult Digital Marketing Agency
           </h1>
           <p className="text-gray-100 mb-10 max-w-2xl" style={{ fontSize: '18px', lineHeight: '1.7' }}>
