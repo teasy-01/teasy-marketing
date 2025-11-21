@@ -11,22 +11,22 @@ interface Testimonial {
 export function Testimonials() {
   const testimonials: Testimonial[] = [
     {
-      quote: "Working with this agency transformed our digital presence. We saw a 300% increase in qualified leads within the first quarter. Their strategic approach and transparent reporting gave us confidence in every decision.",
-      author: "Sarah Johnson",
-      role: "VP of Marketing",
-      company: "TechStart Inc."
+      quote: "Teasy Marketing completely changed my business. Their team handled my social strategy, optimization, and posting schedule so I could focus on creating. My engagement and paid conversions doubled within the first month. They actually understand creators and know what works.",
+      author: "Adult Creator",
+      role: "Adult Social Media Marketing",
+      company: ""
     },
     {
-      quote: "The ROI we've achieved has been exceptional. They don't just execute campaigns—they become true partners in our growth. Our cost per acquisition dropped by 55% while our revenue doubled.",
-      author: "Michael Chen",
-      role: "Founder & CEO",
-      company: "GrowthLabs"
+      quote: "We hired Teasy Marketing to overhaul our SEO, and the results blew us away. They improved our rankings for highly competitive adult keywords and brought in consistent organic traffic we'd been trying to get for years. Professional, fast, and genuinely experts in this niche.",
+      author: "Adult Brand",
+      role: "Adult SEO Services",
+      company: ""
     },
     {
-      quote: "Finally, an agency that backs up their promises with data. Their SEO strategy took us from page 3 to position 1 for our most competitive keywords. The impact on our business has been remarkable.",
-      author: "Emily Rodriguez",
-      role: "Head of Digital",
-      company: "Summit Solutions"
+      quote: "Teasy Marketing produced some of the best content we've ever had. They handled creative direction, scripts, production, and editing—everything was organized and high-quality. Our campaign looks cleaner, stronger, and more on-brand than anything we've done before.",
+      author: "Adult Brand",
+      role: "Adult Content Creation Services",
+      company: ""
     }
   ];
 
@@ -65,7 +65,7 @@ export function Testimonials() {
               <footer>
                 <p className="text-black font-semibold">{testimonial.author}</p>
                 <p className="text-gray-500" style={{ fontSize: '14px' }}>
-                  {testimonial.role}, {testimonial.company}
+                  {testimonial.role}{testimonial.company ? `, ${testimonial.company}` : ''}
                 </p>
               </footer>
             </article>
