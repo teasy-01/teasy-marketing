@@ -73,24 +73,6 @@ export function AboutPage() {
       role: "Client Team Manager",
       bio: "Chelsey oversees client success with precision, blending industry knowledge, communication expertise, and operational structure to ensure every brand receives smooth onboarding, consistent support, and high-quality campaign execution.",
       image: "/media/chelsey-teasy.jpg"
-    },
-    {
-      name: "Hannah",
-      role: "Account Manager",
-      bio: "Hannah manages day-to-day client operations, coordinating strategy, creative needs, and performance updates to keep campaigns aligned, efficient, and moving toward measurable growth outcomes.",
-      image: "/media/hannah-teasy.jpg"
-    },
-    {
-      name: "Katie",
-      role: "Marketing Operations Manager",
-      bio: "Katie drives internal systems, workflow optimization, and cross-team coordination, ensuring Teasy Marketing delivers seamless execution, timely production, and organized operations across all clients and departments.",
-      image: "/media/katie-teasy.jpg"
-    },
-    {
-      name: "Malisa",
-      role: "Strategy Coordinator",
-      bio: "Malisa supports strategic planning by analyzing performance data, researching market opportunities, and assisting with campaign ideation to help clients stay competitive, relevant, and positioned for long-term growth.",
-      image: "/media/malisa-teasy.jpg"
     }
   ];
 
